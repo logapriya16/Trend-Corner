@@ -1,43 +1,40 @@
 import "./App.css";
+import  Home  from "./Pages/Home/Home";
+import  ProductDetails  from "./Pages/Products/ProductDetails";
+import Mockman from "mockman-js"
 import logo from "./logo.png";
-
+import {Link} from "react-router-dom"
+import { Routes, Route } from "react-router-dom";
+import ProductListing from "./Pages/ProductDetails/ProductListing";
+import WishList from "./Pages/WishList/WishList";
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} alt="mockBee logo" width="180" height="180" />
-        <h1 className="brand-title">
-          Welcome to <span>mockBee!</span>
-        </h1>
-        <p className="brand-description">
-          Get started by editing <code>src/App.js</code>
-        </p>
-        <div className="links">
-          <a
-            href="https://mockbee.netlify.app/"
-            target="_blank"
-            rel="noreferrer"
-          >
-            Explore mockBee
-          </a>
-          <a
-            href="https://mockbee.netlify.app/docs/api/introduction"
-            target="_blank"
-            rel="noreferrer"
-          >
-            API Documentation
-          </a>
-          <a
-            href="https://github.com/neogcamp/mockBee"
-            target="_blank"
-            rel="noreferrer"
-          >
-            Contribute
-          </a>
-        </div>
-      </header>
-    </div>
-  );
+   
+<div className="App">   
+<nav className="Navigation-Container">
+      
+    <ul className="nav-items">
+    <div className="nav-brand">Naatyalaya</div>
+    <div><input  className="nav-search" placeholder="search for product" type="search"/></div>
+      <li className="nav-item">
+        <Link className="Link" to="/" >Home</Link>
+      </li>
+      <li className="nav-item">
+        <Link className="Link" to="/products">Products</Link>
+      </li>  
+      <li className="nav-item">
+        <Link className="Link" to="/wishlist">WishList</Link>
+      </li>
+    </ul>         
+</nav>
+<Routes>
+  <Route path="/" element={<Home/>}/>
+  <Route path="/products" element={<ProductListing/>}/>
+  <Route path="/wishlist" element={<WishList/>}/>
+  <Route path="/products/:productID" element={<ProductDetails/>}/>
+  <Route path="/mockman" element={<Mockman/>}/>
+</Routes>
+</div>
+ );
 }
-
 export default App;
