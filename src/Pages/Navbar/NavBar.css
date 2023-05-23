@@ -1,0 +1,38 @@
+.Navigation-Container{
+    padding: .5rem;
+    padding-bottom: 0rem;
+    text-align: left;
+    border: 1px solid;
+    position: fixed;
+    z-index: 10;
+    width: 100%;
+    background: white;
+    top:0px; 
+    box-shadow: 5px 5px #8888;
+    display: flex;
+  }
+  .nav-brand{
+    text-align: center;
+    font-size: xx-large;
+    color: var(--primary-color);
+  }
+  .nav-search{
+    width: 500px;
+    height: 30px;
+    border: 2px solid var(--primary-color);
+    border-radius: 3px ;
+    margin: 7vh;
+  }
+  .nav-items{
+    display: flex;
+    list-style: none;
+    padding: 1rem;
+  }
+  .nav-item{
+    padding: 1rem;
+  }
+  .Link{
+    text-decoration: none;
+    color:var(--primary-color);
+  }
+  

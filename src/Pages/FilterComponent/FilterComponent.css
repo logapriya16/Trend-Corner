@@ -1,0 +1,62 @@
+.filters{
+    
+    padding: 0.5rem;
+    margin: 15px;
+    padding-right: 5rem;
+    display: flex;
+    flex-direction: column;
+}
+.filter-head{
+    display: flex;
+    justify-content: space-between;
+    grid-gap: 0.3rem;
+}
+.filter-categories{
+    display: flex;
+    flex-direction: column;
+    padding-top:2rem ;
+}
+.filter-category{
+    display:flex;
+    flex-direction: row;
+    padding-top: 0.5rem;
+    padding-bottom: 0.5rem;    
+}
+.filter-rating{
+    display: flex;
+    flex-direction: column;
+    padding-top:2rem ;
+}
+.filter-rate{
+    display: flex;
+    text-align: center;
+    padding: 0.5rem;
+}
+.filter-occations{
+    display: flex;
+    flex-direction: column;
+    padding-top: 2rem;
+    padding: 0rem;
+    
+}
+.filter-occation{
+padding: 0.5rem;
+}
+.filter-sizes{
+    display: flex;
+    flex-direction: column;
+    padding: 0.5rem;
+}
+.filter-size{
+    padding: 0.5rem;
+}
+.filter-price-sort{
+  padding: 0rem;
+  margin: 0;
+  padding-top: 2rem;
+}
+.filter-price{
+    display: flex;
+    flex-direction: row-reverse;
+    padding: 0.5rem;
+}
