@@ -27,6 +27,7 @@
     display: flex;
     list-style: none;
     padding: 1rem;
+    font-size: larger;
   }
   .nav-item{
     padding: 1rem;
