@@ -1,12 +1,12 @@
-import React, { useState } from "react"
+import React from "react"
 import { useContext, useEffect } from "react"
 import { CartContext } from "../../Contexts/CartContext"
 import "./Cart.css"
-import { BsCart3 } from "react-icons/bs"
-import { useNavigate } from "react-router-dom"
+//import { BsCart3 } from "react-icons/bs"
+//import { useNavigate } from "react-router-dom"
 import { WishListContext } from "../../Contexts/WishListContext"
 export function Cart() {
-    const navigate = useNavigate()
+    //const navigate = useNavigate()
     const { GetCartItems, ChangeQuantity, cartItem, DeleteFromCart, TotalPrice } = useContext(CartContext)
     const { AddToWishList,wishList } = useContext(WishListContext)
     useEffect(() => { GetCartItems() }, [])

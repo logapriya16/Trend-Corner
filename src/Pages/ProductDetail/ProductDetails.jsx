@@ -1,10 +1,8 @@
-import React, { useContext, useEffect, useState } from "react";
+import React, { useContext, useEffect } from "react";
 import { useNavigate, useParams } from "react-router";
 import { CartContext } from "../../Contexts/CartContext";
 import "./ProductsDetails.css"
 
-import { AiOutlineHeart } from "react-icons/ai"
-import { AiTwotoneHeart } from "react-icons/ai"
 import { WishListContext } from "../../Contexts/WishListContext";
 import { BsCart3 } from "react-icons/bs"
 
@@ -32,7 +30,7 @@ export default function ProductsDetails() {
                                     {item.name}
                                 </div>
                                 <div className="product-details-rating">
-                                    <p>{item.rating}⭐</p>
+                                    <p>{item.rating}</p>
                                     <i className="product-details-star"></i>
                                 </div>
                             </div>

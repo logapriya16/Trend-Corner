@@ -11,7 +11,7 @@ import {AiOutlineHome} from "react-icons/ai"
 export function Navbar() {
   const {cartItem}=useContext(CartContext)
   const {wishList}=useContext(WishListContext)
-  //const {wishList}=useContext(WishListContext)
+  
   return <nav className="Navigation-Container">
     <div className="nav-brand">Trend Corner</div>
     <div>

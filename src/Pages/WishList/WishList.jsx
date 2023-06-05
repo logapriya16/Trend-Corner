@@ -3,9 +3,9 @@ import { WishListContext } from "../../Contexts/WishListContext";
 import "./WishList.css"
 import { Navbar } from "../Navbar/Navbar";
 import { CartContext } from "../../Contexts/CartContext";
-import { useNavigate } from "react-router";
+//import { useNavigate } from "react-router";
 function WishListFunction() {
-        const navigate = useNavigate();
+        //const navigate = useNavigate();
         const {cartItem, AddToCart,GetCartItems,ChangeQuantity}=useContext(CartContext)
         const { getWishlist, wishList ,AddToWishList} = useContext(WishListContext)
         useEffect(() => { getWishlist() }, [])

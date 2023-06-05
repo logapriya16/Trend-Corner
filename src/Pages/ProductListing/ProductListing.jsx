@@ -1,7 +1,7 @@
-import React, { useContext, useEffect, useState } from "react";
+import React, { useContext, useEffect} from "react";
 import "./ProductListing.css"
 import { FilterComponent } from "../FilterComponent/FilterComponent";
-import { Navigate, useNavigate } from "react-router";
+import { useNavigate } from "react-router";
 import { CartContext } from "../../Contexts/CartContext";
 import { WishListContext } from "../../Contexts/WishListContext";
 import { AiOutlineHeart } from "react-icons/ai"
@@ -9,7 +9,7 @@ import { AiTwotoneHeart } from "react-icons/ai"
 import { BsCart3 } from "react-icons/bs"
 function ProductListing() {
 
-    const { AddToCart, getData, data, cartItem, GetCartItems, CartProducts } = useContext(CartContext)
+    const { AddToCart, getData, data, cartItem, GetCartItems} = useContext(CartContext)
     const { AddToWishList, wishList } = useContext(WishListContext)
     const navigate = useNavigate()
     useEffect(() => {
@@ -37,7 +37,7 @@ function ProductListing() {
                                 {item.name}
                             </div>
                             <div className="product-rating">
-                                <p>{item.rating} <span role="img">⭐</span></p>
+                                <p>{item.rating} <span></span></p>
                                 <i className="product-star"></i>
                             </div>
                         </div>
