@@ -1,0 +1,108 @@
+.products-container{
+    display: flex;
+    padding-top: 7rem;    
+    
+}
+.product{
+    display: flex;
+    flex-wrap: wrap;
+    border-left: 6px solid var(--primary-color);
+}
+.product-container{
+    display: flex;
+    margin: 3rem;
+    flex-direction: row;
+    padding: 3rem;
+    padding-top: 0;
+    height: max-content;
+    box-shadow: 0 0 5px rgba(0,0,0.1);
+}
+.product-image-wislist-wrapper{
+    display: flex;
+    }
+.product-image{
+    padding: 0;
+    border-radius: 2px;
+    display: inline-block;
+    width: 200px;
+    height: 200px;
+}
+.product-container:hover{
+    box-shadow: 0 0 20px rgba(0,0,0.1);    
+}
+.product-like-button{
+    padding-left: 0.5rem;
+    padding-right: 0rem;
+    cursor: pointer;
+    font-size: large;
+}
+.product-like-button:hover {
+    color: rgb(206, 14, 14);
+}
+.product-liked-button{
+    padding-left: 0.5rem;
+    color: rgb(206, 14, 14);
+    font-size: large;
+    cursor: pointer;   
+}
+.product-name-rating{
+    display: flex;
+}
+.product-name{
+    padding: 0.3rem;
+    padding-right: 1rem;
+    font-weight: bold;
+}
+.product-rating{
+    background-color: #20aa20;
+    border-radius: 9px;
+    color: rgb(255, 255, 255);
+    font-style: normal;
+    font-weight: 600;
+    font-size: 16px;
+    line-height: 1px;
+    font-family: "Mier demi";
+    margin: 0px;
+    padding: 0px;
+    padding-left: 0.3rem;
+    padding-right: 0.3rem;
+    font-size: small;
+}
+.product-occation{
+    color: #a2a2a2;
+    font-weight: 600px;
+    padding: 0.5rem;
+    padding-bottom: 0;
+}
+.product-price{
+    display: flex;
+    gap:1rem;
+    margin-top: 0.5rem;
+    font-weight:600px ;
+    font-size: 1.1rem;
+    padding: 0rem;
+    padding-left: 0.5rem;
+    font-family: "Mier demi";
+
+}
+.product-discount-price{
+    font-weight: bolder;
+}
+.product-original-price{
+    color: #a2a2a2;
+    text-decoration: line-through;
+}
+.product-dis-percentage{
+    color:green;
+}
+.product-primary-button{
+    background-color: var(--primary-color);
+    padding: 0.5rem;
+    border-radius: 0.5rem;
+    color: white;
+    font-weight: bolder;
+    font-size: large;
+    border: 0;
+    width:100%;
+    cursor: pointer;
+}

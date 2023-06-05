@@ -1,0 +1,107 @@
+.products-details-container{
+    padding-top: 10rem;       
+}
+.product-details-individual{
+    display: flex;
+    flex-wrap: wrap;
+    
+}
+.product-details-each{
+    display: flex;
+    width: 100%;
+}
+.product-details-container{
+    width: 100%;
+    display: flex;
+    margin: 3rem;
+    flex-direction: row;
+    padding-top: 0;
+    height: max-content;
+    box-shadow: 0 0 5px rgba(0,0,0.1);
+}
+.product-details-image{
+    padding: 0.5rem;
+    border-radius: 2px;
+    display: inline-block;
+    width: 700px;
+    height: 600px;
+}
+.product-details-info{
+    padding: 5rem;
+    font-size: large;
+    width: 100%;
+    height: 100%;
+}
+.product-details-name-rating{
+    display: flex;
+}
+.product-details-name{
+    padding: 0.3rem;
+    padding-right: 1rem;
+    font-weight: bold;
+}
+.product-details-rating{
+    background-color: #20aa20;
+    border-radius: 9px;
+    color: rgb(255, 255, 255);
+    font-style: normal;
+    font-weight: 600;
+    font-size: 16px;
+    line-height: 1px;
+    font-family: "Mier demi";
+    margin: 0px;
+    padding: 0px;
+    padding-left: 0.3rem;
+    padding-right: 0.3rem;
+    font-size: small;
+}
+.fa-heart::before{
+    content: "\f004";
+    
+}
+.product-details-occation{
+    color: #a2a2a2;
+    font-weight: 600px;
+    padding: 0.5rem;
+    padding-bottom: 0;
+}
+.product-details-price{
+    display: flex;
+    gap:1rem;
+    margin-top: 0.5rem;
+    font-weight:600px ;
+    font-size: 1.1rem;
+    padding: 0rem;
+    padding-left: 0.5rem;
+    font-family: "Mier demi";
+
+}
+.product-details-discount-price{
+    font-weight: bolder;
+}
+.product-details-original-price{
+    color: #a2a2a2;
+    text-decoration: line-through;
+}
+.product-details-dis-percentage{
+    color:green;
+}
+.product-details-buttons{
+    display: flex;
+    gap: 0.3rem;
+    padding-top: 0.7rem;
+    padding: 0.3rem;
+}
+.product-details-primary-button{
+    background-color: var(--primary-color);
+    padding: 0.7rem;
+    border-radius: 0.5rem;
+    color: white;
+    font-weight: bolder;
+    font-size: large;
+    border: 0;
+    width:100%;
+}
+.product-details-primary-button:hover{
+    
+}
