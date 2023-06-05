@@ -1,0 +1,79 @@
+.cart-container{
+    display: flex;
+    flex-direction: column;
+    padding-top: 7rem;
+    gap: 0.5rem;
+    width: fit-content;
+}
+.cart-product-container{
+    padding: 3rem;
+    box-shadow: 0 0 5px rgba(0,0,0.1);
+}
+.cart-contents{
+    display: flex;
+}
+.cart-product-image{
+    padding: 0;
+    border-radius: 2px;
+    display: inline-block;
+    width: 300px;
+    height: 300px;
+
+}
+.cart-product-name{
+    padding: 0.3rem;
+    padding-right: 1rem;
+    font-weight: bold;
+}
+.cart-product-quantity{
+    display: flex;
+}
+.cart-product-price{
+    display: flex;
+    gap:1rem;
+    margin-top: 0.5rem;
+    font-weight:600px ;
+    font-size: 1.1rem;
+    padding: 0rem;
+    padding-left: 0.5rem;
+    font-family: "Mier demi";
+   
+}
+.cart-product-discount-price{
+    font-weight: bolder;
+}
+.cart-product-original-price{
+    color: #a2a2a2;
+    text-decoration: line-through;
+}
+.cart-product-dis-percentage{
+    color:green;
+}
+.cart-button{
+    display: flex;
+}
+.cart-primary-button{
+    background-color: transparent;
+    padding: 0.5rem;
+    border-radius: 0.5rem;
+    font-weight: bolder;
+    font-size: large;
+    border: 0;
+    margin-top: 0.5rem;
+    margin-left: 15rem;
+    margin-right: 5rem;
+    width: fit-content;
+}
+.CheckOut-Container{
+    box-shadow: 0 0 3px rgba(0,0,0.1);   
+    width: 600px;
+    margin: 6rem;
+    padding: 0.5rem;
+}
+.coupon-container{
+    padding: 0.2rem;
+}
+.cart-primary-button:hover{
+    background-color: var(--primary-color);
+    color: aliceblue;
+}

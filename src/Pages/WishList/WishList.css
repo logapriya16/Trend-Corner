@@ -1,0 +1,11 @@
+.primary-button{
+    background-color: var(--primary-color);
+    padding: 0.5rem;
+    border-radius: 0.5rem;
+    color: white;
+    font-weight: bolder;
+    font-size: large;
+}
+.wishlist-container{
+    padding-top: 7rem;
+}

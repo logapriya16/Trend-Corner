@@ -5,7 +5,7 @@ export const CartProvider = ({ children }) => {
     const [cartItem, setCartItem] = useState([])
     const [TotalPrice,setTotalPrice]=useState(0)
     const [data, setData] = useState([])
-
+    const [CartProducts,SetCartProducts]=useState([]) 
     //api call to fetch data
     const getData = async () => {
         try {
@@ -49,6 +49,7 @@ export const CartProvider = ({ children }) => {
             const item = await response.json()
          //console.log(item.cart)
             setCartItem(item.cart)
+            SetCartProducts(item.cart.map((item)=>item.name))
         }
         catch (error) { console.error(error) }
     }
@@ -104,7 +105,7 @@ export const CartProvider = ({ children }) => {
     }
 
     return (<CartContext.Provider value={{ GetCartItems, cartItem, ChangeQuantity,
-        BillAmt,TotalPrice ,AddToCart,DeleteFromCart,getData,data,setData
+        BillAmt,TotalPrice ,AddToCart,DeleteFromCart,CartProducts, getData,data,setData
     }}>
         {children}
     </CartContext.Provider>)
