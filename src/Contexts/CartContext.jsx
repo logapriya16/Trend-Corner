@@ -51,8 +51,9 @@ export const CartProvider = ({ children }) => {
       console.log(response);
 
       SetCartProducts(item.cart.map((item) => item.name));
-    } catch (error) {
-      console.error(error);
+    }
+     catch (error) {
+      console.error("error in fetching cart items",error);
     }
   };
 
