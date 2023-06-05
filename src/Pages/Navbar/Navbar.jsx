@@ -26,12 +26,12 @@ export function Navbar() {
           <Link className="Link" to="/products"><GiLargeDress/></Link>
         </li>
         <li className="nav-item">
-          <Link className="Link" to="/wishlist"><AiTwotoneHeart/></Link>
-          {/* {wishList.length>0?wishList.length:"0"} */}
+          <Link className="Link" to="/wishlist"><AiTwotoneHeart/>{wishList.length>0?wishList.length:"0"}</Link>
+          
         </li>
         <li className="nav-item">
-          <Link className="Link" to="/cart"><BsCartFill/></Link>
-          {/* {cartItem.length>0?cartItem.length:"0"} */}
+          <Link className="Link" to="/cart"><BsCartFill/>{cartItem.length>0?cartItem.length:"0"}</Link>
+          
         </li>
         <li className="nav-item">
           <Link className="Link" to="/login"><CgProfile/></Link>

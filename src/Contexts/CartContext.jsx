@@ -48,7 +48,7 @@ export const CartProvider = ({ children }) => {
       });
       const item = await response.json();
       setCartItem(item.cart);
-      console.log(response);
+      //console.log(response);
 
       SetCartProducts(item.cart.map((item) => item.name));
     }
@@ -57,7 +57,7 @@ export const CartProvider = ({ children }) => {
     }
   };
 
-  console.log(cartItem);
+  
   //api call to change the quantity of a product
   const ChangeQuantity = async (id, action_type) => {
     const Token = localStorage.getItem("encodedToken");

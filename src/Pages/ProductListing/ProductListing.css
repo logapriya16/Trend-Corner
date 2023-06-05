@@ -15,7 +15,7 @@
     padding: 3rem;
     padding-top: 0;
     height: max-content;
-    box-shadow: 0 0 5px rgba(0,0,0.1);
+    border: 1px groove var(--primary-color);
 }
 .product-image-wislist-wrapper{
     display: flex;
@@ -28,7 +28,7 @@
     height: 200px;
 }
 .product-container:hover{
-    box-shadow: 0 0 20px rgba(0,0,0.1);    
+    box-shadow: 0 0 20px rgb(0,2, 0);    
 }
 .product-like-button{
     padding-left: 0.5rem;
