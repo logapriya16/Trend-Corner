@@ -14,8 +14,9 @@ function ProductListing() {
     const navigate = useNavigate()
     useEffect(() => {
         getData();
-        GetCartItems();
+        //GetCartItems();
     }, []);
+    console.log(cartItem)
     return <div className="products-container">
         <div><FilterComponent /></div>
         <ul type="none" className="product">

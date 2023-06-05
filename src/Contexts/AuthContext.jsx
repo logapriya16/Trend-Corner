@@ -48,7 +48,8 @@ export function AuthProvider({children}){
             });
             const {encodedToken} = await response.json();
             localStorage.setItem("encodedToken",encodedToken)
-           //console.log(location.state)
+           console.log(encodedToken)
+           console.log(response.data)
             //console.log(location)
            navigate(location.state.from.pathname)
         }
