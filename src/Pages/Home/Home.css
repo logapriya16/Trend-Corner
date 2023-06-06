@@ -1,3 +1,74 @@
+@import url('https://fonts.googleapis.com/css2?family=Alfa+Slab+One&family=Foldit:wght@500&family=Rubik+Puddles&display=swap');
+
 .home-container{
     padding-top: 7rem;
+}
+.home-slide-cotainer{
+    width: 100%;
+}
+.home-slide-imgs{
+    display: none;
+    width: 100%;
+}
+.home-tagline{
+    font-size:3rem;
+    font-weight: bolder;
+    text-align: center;
+    color: var(--primary-color);
+    
+}
+.title-word{
+    animation: color-animation 4s linear infinite;
+   
+}
+.title-word-1 {
+    --color-1: #DF8453;
+    --color-2: #3D8DAE;
+    --color-3: #E4A9A8;
+  }
+  
+  .title-word-2 {
+    --color-1: #DBAD4A;
+    --color-2: #ACCFCB;
+    --color-3: #17494D;
+  }
+  
+  .title-word-3 {
+    --color-1: #ACCFCB;
+    --color-2: #E4A9A8;
+    --color-3: #ACCFCB;
+  }
+  
+  .title-word-4 {
+    --color-1:#f97316;
+    --color-2: #DF8453;
+    --color-3: #E4A9A8;
+  }
+  
+@keyframes color-animation {
+    0%    {color: var(--color-1)}
+    32%   {color: var(--color-1)}
+    33%   {color: var(--color-2)}
+    65%   {color: var(--color-2)}
+    66%   {color: var(--color-3)}
+    99%   {color: var(--color-3)}
+    100%  {color: var(--color-1)}
+  }
+.home-categories-container{
+    display: flex;
+    padding-top: 0;
+    padding: 10rem;
+    padding-bottom: 2rem;
+    cursor: pointer;
+}
+.home-category-container{
+    border-radius: 50%;
+    padding-top: 0;
+    
+    height: 500px;
+    width: 500px;
+}
+.home-category-img{
+    border-radius: 50%;
+    height: 500px;
 }
