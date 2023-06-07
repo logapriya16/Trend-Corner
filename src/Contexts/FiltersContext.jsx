@@ -4,7 +4,7 @@ export const FilterProvider = ({ children }) => {
   const [products, setProducts] = useState([]);
   const [filters, SetFilters] = useState({
     serachInput: "",
-    rangeInput: 0,
+    rangeInput: 100000,
     categoryInput: [],
     ratingInput: "",
     occationInput: [],
