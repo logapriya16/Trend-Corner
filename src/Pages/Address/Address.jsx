@@ -3,12 +3,18 @@ import "./Address.css"
 import { CartPriceDetails } from "../../Components/CartPriceDetails";
 import { AddressContext } from "../../Contexts/AddressContext";
 import { Link } from "react-router-dom";
+import { CartContext } from "../../Contexts/CartContext";
+import { OrderSummary } from "../../Components/OrderSummary/OrderSummary";
+import { toast } from "react-toastify";
 export const Address=()=>{
     const {userAddress}=useContext(AddressContext)
+    const {cartItem}=useContext(CartContext)
     const [currAddres,setCurrAdress]=useState(userAddress[0])
+    const[order,setOrder]=useState(false)
     console.log(userAddress,"in address page")
     return <div>
-        <div className="address-container">
+        {order===false?<div>
+            <div className="address-container">
 
         
         <div className="address-of-user">
@@ -27,9 +33,24 @@ export const Address=()=>{
         <div className="Final-address"><hr />
             <h5> Are you sure you want to Deliver Products  To this Address?</h5>
             {currAddres.name}<br/>{currAddres.hno},{currAddres.city}{currAddres.state},<br/> {currAddres.pincode} <br/> Phone : {currAddres.phno}<br/> {currAddres.country}<br/>
-            <button className="Order-btn">Place Order</button>
+            <button className="Order-btn" onClick={()=>{
+                setOrder(true)
+                toast.success("Order Placed", {
+                    position: "top-center",
+                    autoClose: 5000,
+                    hideProgressBar: false,
+                    closeOnClick: true,
+                    pauseOnHover: true,
+                    draggable: true,
+                    progress: undefined,
+                    theme: "light",
+                  });
+            }}>Place Order</button>
             <hr/>
         </div>
+        </div>  : <div >
+            <OrderSummary/>
+            </div>}
         
     </div>
 }
