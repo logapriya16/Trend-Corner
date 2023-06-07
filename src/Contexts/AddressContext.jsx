@@ -27,11 +27,7 @@ export const AddressProvider = ({ children }) => {
     pincode: "",
     phno: "",
   });
-  // useEffect(() => {
-  //   setuserAddress((address)=>[...address,initialAddress]);
-  // }, []);
-  console.log( userAddress);
-  //console.log(collectAddress)
+  //console.log( userAddress);
   return (  
     <AddressContext.Provider
       value={{ initialAddress, setCollectAddress ,collectAddress ,userAddress,setuserAddress}}
