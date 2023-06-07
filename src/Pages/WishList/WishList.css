@@ -1,5 +1,8 @@
-.primary-button{
+.wishlist-primary-button{
     background-color: var(--primary-color);
+    border: 0;
+    gap: 0.3rem;
+    margin: 0.3rem;
     padding: 0.5rem;
     border-radius: 0.5rem;
     color: white;
@@ -8,4 +11,55 @@
 }
 .wishlist-container{
     padding-top: 7rem;
+}
+.wishlist-product-container{
+    padding: 3rem;
+    box-shadow: 0 5px 15px rgba(90,90,90,.35); 
+}
+.wishlist-contents{
+    display: flex;
+    width: 50%;
+}
+.wishlist-product-image{
+    padding: 0;
+    border-radius: 2px;
+    display: inline-block;
+    width: 300px;
+    height: 300px;
+
+}
+.wishlist-product-details{
+    padding: 1rem;
+    width: fit-content;
+}
+.wishlist-product-name{
+    padding: 0.3rem;
+    padding-right: 1rem;
+    font-weight: bold;
+}
+.wishlist-product-price{
+    display: flex;
+    gap:1rem;
+    margin-top: 0.5rem;
+    font-weight:600px ;
+    font-size: 1.1rem;
+    padding: 0rem;
+    padding-left: 0.5rem;
+    font-family: "Mier demi";
+   
+}
+.wishlist-product-discount-price{
+    font-weight: bolder;
+}
+.wishlist-product-original-price{
+    color: #a2a2a2;
+    text-decoration: line-through;
+}
+.wishlist-product-dis-percentage{
+    color:green;
+}
+.wishlist-product-quantity{
+    margin-top: 1rem;
+    display: flex;
+    gap: 0.3rem;
 }
