@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import { createContext } from "react";
 import { useLocation, useNavigate } from "react-router";
-
+import { toast } from "react-toastify";
 
 export const AuthContext = createContext();
 export function AuthProvider({children}){
@@ -11,7 +11,8 @@ export function AuthProvider({children}){
     const [lastname,Setlastname]=useState("")
     const navigate = useNavigate();
     const location = useLocation();
-
+    const token = localStorage.getItem("encodedToken")
+    const [isLoggedIn,SetIsLoggedIn]=useState(token)
     
     //login function for a user
     const getData=async()=>{
@@ -27,9 +28,12 @@ export function AuthProvider({children}){
             });
             const {encodedToken} = await response.json();
             localStorage.setItem("encodedToken",encodedToken)
+            
+            SetIsLoggedIn(encodedToken)
            //console.log(location.state)
-            //console.log(location)
+            console.log(response)
            navigate(location.state.from.pathname)
+           
         }
         catch(error){
             console.error(error)
@@ -51,11 +55,13 @@ export function AuthProvider({children}){
             const {encodedToken} = await response.json();
             localStorage.setItem("encodedToken",encodedToken)
            console.log(encodedToken)
-           //console.log(response.data)
-            //console.log(location)
-
+                //console.log(response)
+                SetIsLoggedIn(encodedToken)
+                
            navigate(location.state.from.pathname)
+           
         }
+        
         catch(error){
             console.error(error)
         }   
@@ -77,14 +83,15 @@ export function AuthProvider({children}){
             });
             const {encodedToken}=await response.json();
             localStorage.setItem("encodedToken",encodedToken)
-            console.log(response)
-            console.log(encodedToken)
-            console.log(creds)
+            SetIsLoggedIn(encodedToken)
+            //console.log(response)
+            //console.log(encodedToken)
+            //console.log(creds)
         }
         catch(error){console.log("Error while SignUp",error)}
     }
     return(
-        <AuthContext.Provider  value={{getData,getDefaultData,password,setPassword,email,setEmail,Setfirstname,Setlastname,SignUp}}>
+        <AuthContext.Provider  value={{getData,getDefaultData,password,setPassword,email,setEmail,Setfirstname,Setlastname,isLoggedIn,SetIsLoggedIn,SignUp}}>
             {children}
         </AuthContext.Provider>
     )
