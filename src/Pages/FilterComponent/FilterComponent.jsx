@@ -10,6 +10,7 @@ export const FilterComponent = () => {
     HandleRange,
     HandleSize,
     HandleSort,
+    HandleClear
   } = useContext(FilterContext);
   return (
     <div className="filters">
@@ -17,7 +18,7 @@ export const FilterComponent = () => {
         <p>
           <b>Filters</b>
         </p>
-        <p>Clear</p>
+        <span onClick={()=>{HandleClear()} }>Clear</span>
       </div>
 
       <div className="filter-price-range">

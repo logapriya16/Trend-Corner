@@ -66,6 +66,15 @@ export const FilterProvider = ({ children }) => {
     SetFilters((filters) => ({ ...filters, sortInput: e }));
   };
 
+  const HandleClear=()=>{
+    SetFilters((filters)=>({...filters,serachInput: "",
+    rangeInput: 0,
+    categoryInput: [],
+    ratingInput: "",
+    occationInput: [],
+    sizeInput: [],
+    sortInput: ""}))
+  }
   const SearchSort =
     filters.serachInput.length > 0
       ? products.filter((item) =>
@@ -202,6 +211,7 @@ export const FilterProvider = ({ children }) => {
         HandleSize,
         HandleSort,
         PriceSort,
+        HandleClear
       }}
     >
       {children}
