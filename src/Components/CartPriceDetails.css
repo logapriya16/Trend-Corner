@@ -1,0 +1,30 @@
+.cart-price-details{
+    padding: 0;
+}
+.cart-price{
+    display: flex;
+    justify-content: space-between;
+    border: 0;
+}
+.cart-discount{
+    display: flex;
+    border: 0;
+    justify-content: space-between;
+
+}
+.cart-delivery-charge{
+    display: flex;
+    
+    justify-content: space-between;
+}
+.cart-coupon{
+    display: flex;
+    
+    justify-content: space-between;
+}
+.cart-tot-amt{
+   
+   
+    justify-content: space-between;
+    display: flex;
+}
