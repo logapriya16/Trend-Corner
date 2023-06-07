@@ -86,7 +86,7 @@ export function Login() {
             </button>
           </div>
           <a href="/signup">
-            <div>Create New Account</div>
+            Create New Account
           </a>
         </div>
       </div>
