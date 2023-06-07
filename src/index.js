@@ -8,23 +8,30 @@ import { CartProvider,CartContext } from "./Contexts/CartContext";
 import { AuthProvider } from "./Contexts/AuthContext";
 import { AuthContext } from "./Contexts/AuthContext";
 import { WishlistProvider ,WishListContext} from "./Contexts/WishListContext";
+import { FilterContext,FilterProvider } from "./Contexts/FiltersContext";
+import { AddressProvider,AddressContext } from "./Contexts/AddressContext";
 // Call make Server
 makeServer();
+export{AddressContext}
 export{AuthContext}
 export {CartContext}
 export {WishListContext}
+export{FilterContext}
 ReactDOM.render(
   <BrowserRouter>
   <AuthProvider>
   <CartProvider>
   <WishlistProvider>
-  <Routes>  
+    <FilterProvider>
+      <AddressProvider>
+      <Routes>  
       <Route path="*" element={<App/>}/>
       </Routes>
-      </WishlistProvider>
-      </CartProvider>
-      </AuthProvider>
+      </AddressProvider>
+      </FilterProvider>
+  </WishlistProvider>
+  </CartProvider>
+  </AuthProvider>
   </BrowserRouter>,
   document.getElementById("root")
-  
   );

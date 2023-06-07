@@ -58,7 +58,7 @@ export const products = [
     _id: uuid(),
     price: "1500",
     name:"Trendy Black Frock",
-    categoryName: "gowns",
+    categoryName: " ",
     rating:"3.9",
     image:"https://img3.junaroad.com/uiproducts/18329317/zoom_0-1649771283.jpg",
     instock:"false",
