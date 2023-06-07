@@ -31,7 +31,7 @@ export const products = [
   {  
     _id: uuid(),
     name:"Pink T-Shirt",
-    price: "629",
+    price: "700",
     categoryName: "t-shirts",
     rating:"4.6",
     image:"https://m.media-amazon.com/images/I/61KYNIj6RXL._AC_UL480_QL65_.jpg",
@@ -92,7 +92,7 @@ export const products = [
   },
   {  
     _id: uuid(),
-    price: "1136",
+    price: "1170",
     name:"Black T-shirt",
     categoryName: "t-shirts",
     rating:"5",
@@ -143,7 +143,7 @@ export const products = [
 
 {  
   _id: uuid(),
-  price: "391",
+  price: "650",
   name:"Anarkali",
   categoryName: "kurtha",
   rating:"3.7",
@@ -156,7 +156,7 @@ export const products = [
 
 {  
   _id: uuid(),
-  price: "392",
+  price: "700",
   name:"Micky T-Shirt",
   categoryName: "t-shirts",
   rating:"3.6",
@@ -169,7 +169,7 @@ export const products = [
 
 {  
   _id: uuid(),
-  price: "3672",
+  price: "6000",
   name:"Red Kurthy",
   categoryName: "kurtha",
   rating:"2.0",
@@ -182,7 +182,7 @@ export const products = [
 
 {  
   _id: uuid(),
-  price: "892",
+  price: "900",
   name:"Green Kurthy",
   categoryName: "kurtha",
   rating:"4.6",
@@ -195,7 +195,7 @@ export const products = [
 
 {  
   _id: uuid(),
-  price: "499",
+  price: "999",
   name:"Red Floral",
   categoryName: "gowns",
   rating:"1.2",
