@@ -2,6 +2,7 @@ import React, { useContext, useEffect, useRef, useState } from "react";
 import "./Home.css";
 import { useNavigate } from "react-router";
 import { FilterContext } from "../../Contexts/FiltersContext";
+import { Footer } from "../Footer/footer";
 function Home() {
   const navigate = useNavigate();
   const imgs = [
@@ -35,7 +36,8 @@ function Home() {
   //style={{ transform: `translate3d(${-index* 100}%, 0, 0)` }}
   const { HandleCategory } = useContext(FilterContext);
   return (
-    <div className="home-container">
+    <div>
+       <div className="home-container">
       {/* {slideShow()} */}
       <div className="home-slide-cotainer">
         <ul type="none">
@@ -118,6 +120,11 @@ function Home() {
         </div>
       </div>
     </div>
+    <footer>
+      <Footer/>
+    </footer>
+    </div>
+   
   );
 }
 export default Home;

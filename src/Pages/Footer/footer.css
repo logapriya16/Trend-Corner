@@ -1,0 +1,17 @@
+.footer-container{
+    text-align: center;
+}
+
+.footer-items{
+    margin-left: 30rem;
+    display: flex;
+    list-style: none;
+    font-size: larger;
+    align-items: center;
+    text-align: center;
+}
+.footer-links{
+    padding: 1rem;
+    color: var(--primary-color);
+    font-size: 30px;
+}

@@ -17,7 +17,7 @@ function WishListFunction() {
   return (
     <div className="wishlist-container">
       <Navbar />
-      <h1>My WishList</h1>
+      <h1 style={{textAlign:"center"}}>{wishList.length <1?"Your Wishlist is empty":"My wishlist"}</h1>
       <ul>
         {wishList.map((item) => {
           const IsCartItem = cartItem.find(
