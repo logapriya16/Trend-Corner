@@ -4,6 +4,7 @@ import { getPriceDetails } from "../Utils/GetPricedetails";
 import { CartContext } from "../Contexts/CartContext";
 import { useNavigate } from "react-router";
 import { Cart } from "../Pages/Cart/Cart";
+import { toast } from "react-toastify";
 function CartPriceDetails() {
   const {
     price,
@@ -17,7 +18,7 @@ function CartPriceDetails() {
   const navigate = useNavigate()
   return (
     <div style={{padding:"2rem" , textAlign:"center",paddingTop:"0rem"}}>
-
+          
       <hr />
       <h3 style={{textAlign:"center"}}>PRICE DETAILS</h3>
       <hr />
@@ -58,7 +59,18 @@ function CartPriceDetails() {
         </p>
 
         <br />
-        <button className="primary-button" onClick={()=>{ if(price>0){navigate("/address")}}} > Checkout</button>
+        <button className="primary-button" onClick={()=>{ price>0?navigate("/address")  
+      :toast.warning(" Add items to the cart ", {
+        position: "bottom-right",
+        autoClose: 5000,
+        hideProgressBar: false,
+        closeOnClick: true,
+        pauseOnHover: true,
+        draggable: true,
+        progress: undefined,
+        theme: "light",
+      });
+  }} > Checkout</button>
       </div>
     </div>
   );
