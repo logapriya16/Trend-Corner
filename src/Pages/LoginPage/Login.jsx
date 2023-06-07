@@ -2,27 +2,14 @@ import { useContext } from "react";
 import "./Login.css";
 import React from "react";
 import { AuthContext } from "../../Contexts/AuthContext";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import { toast } from "react-toastify";
 export function Login() {
   const { getData,isLoggedIn, getDefaultData, setPassword, setEmail,SetIsLoggedIn } = useContext(
     AuthContext
   );
-  const notify=()=>{
-    toast.success("Login successful!", {
-      position: "bottom-right",
-      autoClose: 5000,
-      hideProgressBar: false,
-      closeOnClick: true,
-      pauseOnHover: true,
-      draggable: true,
-      progress: undefined,
-      theme: "light",
-    });
-  }
-    //toast.success("you are logged in with Test User")
   
-
+const navigate=useNavigate()
   return (
     <div className="Auth-Container">
       {isLoggedIn ? 
@@ -79,15 +66,24 @@ export function Login() {
               type="submit"
               className="primary-button"
               onClick={() => {getDefaultData();  
-                notify();
+                toast.success("Siggned Up ", {
+                  position: "bottom-right",
+                  autoClose: 5000,
+                  hideProgressBar: false,
+                  closeOnClick: true,
+                  pauseOnHover: true,
+                  draggable: true,
+                  progress: undefined,
+                  theme: "light",
+                });
                 }}
             >
               Test User
             </button>
           </div>
-          <a href="/signup">
+          <button style={{backgroundColor:"transparent"}} onClick={()=>navigate("/signup")}>
             Create New Account
-          </a>
+          </button>
         </div>
       </div>
       
