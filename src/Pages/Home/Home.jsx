@@ -63,7 +63,7 @@ function Home() {
           </p>
         </div>
         <div>
-          <button className="home-btn">Shop Now</button>
+          <button className="home-btn" onClick={()=>navigate("/products")}>Shop Now</button>
         </div>
         <div className="home-categories-container">
           <div className="home-category-container">
