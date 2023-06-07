@@ -17,22 +17,21 @@ export const CartProvider = ({ children }) => {
     }
   };
 
-  //method to calculate total Amt of Bill
-  const BillAmt = () => {
-    cartItem.map((item) => setTotalPrice(item.price));
-  };
-
   //api call to add items to cart
   const AddToCart = async (item) => {
     const Token = localStorage.getItem("encodedToken");
     try {
-      await fetch("/api/user/cart", {
+      const response = await fetch("/api/user/cart", {
         method: "POST",
         headers: {
           authorization: Token,
         },
         body: JSON.stringify({ product: item }),
       });
+      //console.log(response)
+      if(response.status===201){
+        GetCartItems()
+      }
     } catch (err) {
       console.error(err);
     }
@@ -72,6 +71,7 @@ export const CartProvider = ({ children }) => {
           authorization: Token,
         },
       });
+
       //setting the cart again if response is positive
       if (response.status === 200) {
         GetCartItems();
@@ -105,9 +105,18 @@ export const CartProvider = ({ children }) => {
   };
   useEffect(() => {
     getData();
-    //       GetCartItems();
-  }, []);
+     }, []);
 
+     
+  //method to calculate total Amt of Bill
+  const BillAmt = () => {
+    const total=0
+    cartItem.map((item) => {
+      total=total+item.price
+      setTotalPrice(total)
+    });
+  };
+//console.log(TotalPrice)
   return (
     <CartContext.Provider
       value={{
@@ -122,6 +131,7 @@ export const CartProvider = ({ children }) => {
         getData,
         data,
         setData,
+        
       }}
     >
       {children}

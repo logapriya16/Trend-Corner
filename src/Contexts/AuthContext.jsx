@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import { createContext } from "react";
 import { useLocation, useNavigate } from "react-router";
 
+
 export const AuthContext = createContext();
 export function AuthProvider({children}){
     const [email,setEmail]=useState("")
@@ -11,6 +12,7 @@ export function AuthProvider({children}){
     const navigate = useNavigate();
     const location = useLocation();
 
+    
     //login function for a user
     const getData=async()=>{
         try{
@@ -49,8 +51,9 @@ export function AuthProvider({children}){
             const {encodedToken} = await response.json();
             localStorage.setItem("encodedToken",encodedToken)
            console.log(encodedToken)
-           console.log(response.data)
+           //console.log(response.data)
             //console.log(location)
+
            navigate(location.state.from.pathname)
         }
         catch(error){

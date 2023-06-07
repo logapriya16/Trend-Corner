@@ -1,8 +1,10 @@
-import React, { createContext, useState } from "react";
+import React, { createContext, useEffect, useState } from "react";
 export const WishListContext = createContext()
 export const WishlistProvider = ({ children }) => {
 
     const [wishList, SetwishList] = useState([])
+
+    //api call to get the items present in wishlist
     const getWishlist = async () => {
         const Token = localStorage.getItem("encodedToken")
         try {
@@ -15,10 +17,12 @@ export const WishlistProvider = ({ children }) => {
             )
             const item = await response.json()
             SetwishList(item.wishlist)
-            console.log(item.wishlist)
+            //console.log(item.wishlist)
         }
         catch (error) { console.log("Error while getting items from wishlist", error) }
     }
+
+    //api call to add products to wishlist
     const AddToWishList = async (item, operation) => {
 
         if (operation === true) {
