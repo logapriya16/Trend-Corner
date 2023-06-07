@@ -12,7 +12,7 @@ export function Cart() {
     ChangeQuantity,
     cartItem,
     DeleteFromCart,
-    TotalPrice,
+    
   } = useContext(CartContext);
   const { AddToWishList, wishList } = useContext(WishListContext);
   const [coupon, UseCoupon] = useState(false);
@@ -21,7 +21,10 @@ export function Cart() {
     GetCartItems();
   }, []);
   return (
-    <div className="cart-page">
+    
+    <div>
+      {cartItem.length <1 ? <h1 style={{textAlign:"center" , paddingTop:"7rem"}}>Your Cart Is Empty</h1>:
+      <div className="cart-page">
       <ul className="cart-container" type="none">
         {cartItem.map((item) => {
           const IsWishListed = wishList.find(
@@ -173,6 +176,7 @@ export function Cart() {
 
         <CartPriceDetails />
       </div>
+    </div>}
     </div>
   );
 }
