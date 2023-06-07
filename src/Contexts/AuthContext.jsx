@@ -84,9 +84,11 @@ export function AuthProvider({children}){
             const {encodedToken}=await response.json();
             localStorage.setItem("encodedToken",encodedToken)
             SetIsLoggedIn(encodedToken)
+            navigate("/products")
             //console.log(response)
             //console.log(encodedToken)
             //console.log(creds)
+            console.log(location)
         }
         catch(error){console.log("Error while SignUp",error)}
     }
