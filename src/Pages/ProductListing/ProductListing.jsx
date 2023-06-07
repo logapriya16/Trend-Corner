@@ -7,23 +7,28 @@ import { WishListContext } from "../../Contexts/WishListContext";
 import { AiOutlineHeart } from "react-icons/ai";
 import { AiTwotoneHeart } from "react-icons/ai";
 import { BsCart3 } from "react-icons/bs";
+import { FilterContext } from "../../Contexts/FiltersContext";
+import { toast } from "react-toastify";
 function ProductListing() {
-  const { AddToCart, getData, data, cartItem, GetCartItems } = useContext(
+  const { AddToCart, getData, cartItem, GetCartItems } = useContext(
     CartContext
   );
+  const { PriceSort } = useContext(FilterContext);
   const { AddToWishList, wishList } = useContext(WishListContext);
   const navigate = useNavigate();
   useEffect(() => {
     getData();
     //GetCartItems();
   }, []);
+  //console.log(PriceSort);
   return (
     <div className="products-container">
       <div>
         <FilterComponent />
       </div>
       <ul type="none" className="product">
-        {data.map((item) => {
+        {PriceSort.map((item) => {
+          
           const IsWishListed = wishList.find(
             (wishListItem) => wishListItem._id === item._id
           );
@@ -43,12 +48,39 @@ function ProductListing() {
                   <div>
                     {IsWishListed ? (
                       <AiTwotoneHeart
-                        onClick={() => AddToWishList(item, false)}
+                        onClick={() => {AddToWishList(item, false);
+                          toast.warning("Item Removed from Wishlist", {
+                            position: "bottom-right",
+                            autoClose: 5000,
+                            hideProgressBar: false,
+                            closeOnClick: true,
+                            pauseOnHover: true,
+                            draggable: true,
+                            progress: undefined,
+                            theme: "light",
+                          });
+                        }}
                         className=" product-liked-button"
                       />
                     ) : (
                       <AiOutlineHeart
-                        onClick={() => AddToWishList(item, true)}
+                        onClick={() => {
+                          localStorage.getItem("encodedToken")
+                            ? AddToWishList(item, true)
+                            : navigate("/login", {
+                                state: { from: "/products" },
+                              });
+                              toast.success("Item Added To Wishlist", {
+                                position: "bottom-right",
+                                autoClose: 5000,
+                                hideProgressBar: false,
+                                closeOnClick: true,
+                                pauseOnHover: true,
+                                draggable: true,
+                                progress: undefined,
+                                theme: "light",
+                              });
+                        }}
                         className="product-like-button"
                       />
                     )}
@@ -72,6 +104,9 @@ function ProductListing() {
                   <p className="product-original-price"> ₹{item.price}</p>
                   <p className="product-dis-percentage">{item.discount}%off</p>
                 </div>
+                {/* <div>
+                  <p>{item.size}</p>
+                </div> */}
                 <div>
                   <span lassName="product-primary-button">
                     {IsCartItem ? (
@@ -85,8 +120,22 @@ function ProductListing() {
                       <button
                         className="product-primary-button"
                         onClick={() => {
-                          AddToCart(item);
+                          localStorage.getItem("encodedToken")
+                            ? AddToCart(item)
+                            : navigate("/login", {
+                                state: { from: "/products" },
+                              });
                           GetCartItems();
+                          toast.success("Item Added To Cart", {
+                            position: "bottom-right",
+                            autoClose: 5000,
+                            hideProgressBar: false,
+                            closeOnClick: true,
+                            pauseOnHover: true,
+                            draggable: true,
+                            progress: undefined,
+                            theme: "light",
+                          });
                         }}
                       >
                         {" "}
