@@ -2,16 +2,48 @@ import { useContext } from "react";
 import "./Login.css";
 import React from "react";
 import { AuthContext } from "../../Contexts/AuthContext";
-//import {  useNavigate } from "react-router-dom";
-//import {useLocation} from "react-router"
+import { Link } from "react-router-dom";
+import { toast } from "react-toastify";
 export function Login() {
-  const { getData, getDefaultData, setPassword, setEmail } = useContext(
+  const { getData,isLoggedIn, getDefaultData, setPassword, setEmail,SetIsLoggedIn } = useContext(
     AuthContext
   );
+  const notify=()=>{
+    toast.success("Login successful!", {
+      position: "bottom-right",
+      autoClose: 5000,
+      hideProgressBar: false,
+      closeOnClick: true,
+      pauseOnHover: true,
+      draggable: true,
+      progress: undefined,
+      theme: "light",
+    });
+  }
+    //toast.success("you are logged in with Test User")
+  
 
   return (
     <div className="Auth-Container">
-      <div className="Login-Container">
+      {isLoggedIn ? 
+      <div className="logined-in">
+      <h1>You are logged In Now</h1>
+      <button className="product-primary-button" onClick={()=>{localStorage.removeItem("encodedToken"); SetIsLoggedIn(undefined);
+      toast.error("Logged Out", {
+        position: "bottom-right",
+        autoClose: 5000,
+        hideProgressBar: false,
+        closeOnClick: true,
+        pauseOnHover: true,
+        draggable: true,
+        progress: undefined,
+        theme: "light",
+      });
+    }}>LOGOUT</button>
+      <p><Link to="/products">Explore fasion world</Link></p>
+
+        </div>
+      :<div className="Login-Container">
         <h2>Sign In</h2>
         <div className="auth-main">
           <label for="email">Enter your Email :</label>
@@ -46,7 +78,9 @@ export function Login() {
             <button
               type="submit"
               className="primary-button"
-              onClick={() => getDefaultData()}
+              onClick={() => {getDefaultData();  
+                notify();
+                }}
             >
               Test User
             </button>
@@ -56,6 +90,9 @@ export function Login() {
           </a>
         </div>
       </div>
+      
+      }
+      
     </div>
   );
 }
