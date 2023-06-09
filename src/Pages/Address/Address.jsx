@@ -1,14 +1,13 @@
 import React, { useContext, useState } from "react";
 import "./Address.css"
-import { CartPriceDetails } from "../../Components/CartPriceDetails";
+//import { CartPriceDetails } from "../../Components/CartPriceDetails";
 import { AddressContext } from "../../Contexts/AddressContext";
 import { Link } from "react-router-dom";
-import { CartContext } from "../../Contexts/CartContext";
 import { OrderSummary } from "../../Components/OrderSummary/OrderSummary";
 import { toast } from "react-toastify";
+import { CartPriceCard } from "../../Components/CartPriceCard/CartPriceCard";
 export const Address=()=>{
     const {userAddress}=useContext(AddressContext)
-    const {cartItem}=useContext(CartContext)
     const [currAddres,setCurrAdress]=useState(userAddress[0])
     const[order,setOrder]=useState(false)
     console.log(userAddress,"in address page")
@@ -26,7 +25,7 @@ export const Address=()=>{
             <Link to="/newaddress">Add New User Address</Link>
         </div>
         <div className="bill-details">
-        <CartPriceDetails/>
+        <CartPriceCard/>
         
         </div>
         </div>

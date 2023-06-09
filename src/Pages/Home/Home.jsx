@@ -3,6 +3,7 @@ import "./Home.css";
 import { useNavigate } from "react-router";
 import { FilterContext } from "../../Contexts/FiltersContext";
 import { Footer } from "../Footer/footer";
+
 function Home() {
   const navigate = useNavigate();
   const imgs = [
@@ -11,6 +12,7 @@ function Home() {
   const delay = 2500;
   const [index, setIndex] = useState(0);
   const timeoutRef = useRef(null);
+  const {HandleHomecategory } = useContext(FilterContext);
 
   function resetTimeout() {
     if (timeoutRef.current) {
@@ -34,7 +36,6 @@ function Home() {
   }, [index]);
 
   //style={{ transform: `translate3d(${-index* 100}%, 0, 0)` }}
-  const { HandleCategory } = useContext(FilterContext);
   return (
     <div>
        <div className="home-container">
@@ -72,8 +73,8 @@ function Home() {
                 className="home-category-img"
                 alt="cat-img"
                 onClick={(e) => {
-                  HandleCategory("gowns");
-                  //console.log(e.target.value);
+                  HandleHomecategory("gowns");
+                  
                   navigate("/products");
                 }}
               />
@@ -86,7 +87,7 @@ function Home() {
               alt="cat-img"
               
               onClick={(e) => {
-                HandleCategory("jumpsuits");
+                HandleHomecategory("jumpsuits");
                 //console.log(e.target.value);
                 navigate("/products");
               }}
@@ -101,7 +102,7 @@ function Home() {
               alt="cat-img"
               
               onClick={(e) => {
-                HandleCategory("kurtha");
+                HandleHomecategory("kurtha");
                 navigate("/products");
               }}
             />
@@ -112,7 +113,7 @@ function Home() {
               src="https://assets.ajio.com/medias/sys_master/root/20230322/2r89/641adac7907deb497aa2d23a/-473Wx593H-465809301-pink-MODEL5.jpg"
               alt="cat-img"
               onClick={(e) => {
-                HandleCategory("t-shirts");
+                HandleHomecategory("t-shirts");
                 navigate("/products");
               }}
             />

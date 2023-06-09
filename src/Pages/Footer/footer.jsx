@@ -15,7 +15,7 @@ export const Footer =()=>{
                 <li className="footer-links"><a href="https://github.com/logapriya16/"> <BsFillPersonVcardFill className="footer-links"/></a></li>
             </ul>
             <span>Privacy Policy <br/>Terms of Use</span><br/>
-            <a href="" style={{textDecoration:"none"}}>trencorner@2023</a>
+            <a href="/" style={{textDecoration:"none"}}>trencorner@2023</a>
              </div>
     </div>
 } 

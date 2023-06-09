@@ -1,23 +1,15 @@
 import React, { useContext } from "react";
 import "./OrderSummary.css";
-import { useNavigate } from "react-router";
 import { CartContext } from "../../Contexts/CartContext";
 import { getPriceDetails } from "../../Utils/GetPricedetails";
 import "./OrderSummary.css";
-import { Address } from "../../Pages/Address/Address";
 
 
 export const OrderSummary = () => {
   const {
-    price,
-    discount,
-    deliveryCharge,
-    CuponDiscount,
     TotalAmt,
   } = getPriceDetails();
   const { cartItem } = useContext(CartContext);
-  const { currAddres } = Address();
-  const navigate = useNavigate();
   return (
     <div className="Order-container">
         <h1 className="order-title">Hurray Order Placed SuccessFully ! </h1>

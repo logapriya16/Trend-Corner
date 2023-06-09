@@ -1,4 +1,5 @@
-import React, { createContext, useEffect, useState } from "react";
+import React, { createContext,  useState } from "react";
+import { toast } from "react-toastify";
 export const WishListContext = createContext()
 export const WishlistProvider = ({ children }) => {
 
@@ -15,8 +16,33 @@ export const WishlistProvider = ({ children }) => {
                 }
             }
             )
+
             const item = await response.json()
             SetwishList(item.wishlist)
+            if(response.status==201){
+                toast.success("Item Added To Wishlist", {
+                    position: "bottom-right",
+                    autoClose: 5000,
+                    hideProgressBar: false,
+                    closeOnClick: true,
+                    pauseOnHover: true,
+                    draggable: true,
+                    progress: undefined,
+                    theme: "light",
+                  });
+                  if(response.status===500){
+                    toast.warning("Server Error", {
+                        position: "bottom-right",
+                        autoClose: 5000,
+                        hideProgressBar: false,
+                        closeOnClick: true,
+                        pauseOnHover: true,
+                        draggable: true,
+                        progress: undefined,
+                        theme: "light",
+                      });
+                  }
+            }
             //console.log(item.wishlist)
         }
         catch (error) { console.log("Error while getting items from wishlist", error) }
@@ -37,6 +63,28 @@ export const WishlistProvider = ({ children }) => {
                 //console.log(response)
                 if (response.status === 201) {
                     getWishlist()
+                    toast.warning("Item Removed from Wishlist", {
+                        position: "bottom-right",
+                        autoClose: 5000,
+                        hideProgressBar: false,
+                        closeOnClick: true,
+                        pauseOnHover: true,
+                        draggable: true,
+                        progress: undefined,
+                        theme: "light",
+                      });
+                }
+                if(response.status===500){
+                    toast.warning("Server Error", {
+                        position: "bottom-right",
+                        autoClose: 5000,
+                        hideProgressBar: false,
+                        closeOnClick: true,
+                        pauseOnHover: true,
+                        draggable: true,
+                        progress: undefined,
+                        theme: "light",
+                      });
                 }
             }
             catch (error) { console.log("Error in adding item to cart", error) }

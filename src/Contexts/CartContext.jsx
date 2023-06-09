@@ -1,9 +1,10 @@
 import React, { useEffect } from "react";
 import { createContext, useState } from "react";
+import { toast } from "react-toastify";
 export const CartContext = createContext();
 export const CartProvider = ({ children }) => {
   const [cartItem, setCartItem] = useState([]);
-  const [TotalPrice, setTotalPrice] = useState(0);
+  
   const [data, setData] = useState([]);
   const [CartProducts, SetCartProducts] = useState([]);
   //api call to fetch data
@@ -28,9 +29,31 @@ export const CartProvider = ({ children }) => {
         },
         body: JSON.stringify({ product: item }),
       });
-      //console.log(response)
+      console.log(response)
       if(response.status===201){
         GetCartItems()
+        toast.success("Item Added To Cart", {
+          position: "bottom-right",
+          autoClose: 5000,
+          hideProgressBar: false,
+          closeOnClick: true,
+          pauseOnHover: true,
+          draggable: true,
+          progress: undefined,
+          theme: "light",
+        });
+      }
+      if(response.status===500){
+        toast.warning("Server Error", {
+          position: "bottom-right",
+          autoClose: 5000,
+          hideProgressBar: false,
+          closeOnClick: true,
+          pauseOnHover: true,
+          draggable: true,
+          progress: undefined,
+          theme: "light",
+        });
       }
     } catch (err) {
       console.error(err);
@@ -47,8 +70,7 @@ export const CartProvider = ({ children }) => {
       });
       const item = await response.json();
       setCartItem(item.cart);
-      //console.log(response);
-
+      console.log(response);
       SetCartProducts(item.cart.map((item) => item.name));
     }
      catch (error) {
@@ -108,14 +130,7 @@ export const CartProvider = ({ children }) => {
      }, []);
 
      
-  //method to calculate total Amt of Bill
-  const BillAmt = () => {
-    const total=0
-    cartItem.map((item) => {
-      total=total+item.price
-      setTotalPrice(total)
-    });
-  };
+  
 //console.log(TotalPrice)
   return (
     <CartContext.Provider
@@ -123,8 +138,7 @@ export const CartProvider = ({ children }) => {
         GetCartItems,
         cartItem,
         ChangeQuantity,
-        BillAmt,
-        TotalPrice,
+        
         AddToCart,
         DeleteFromCart,
         CartProducts,

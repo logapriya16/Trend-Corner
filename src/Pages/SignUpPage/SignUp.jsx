@@ -45,16 +45,16 @@ export function SignUp() {
       ) : (
         <div className="SignUp-Container">
           <h2 className="auth-title">Sign Up</h2>
-          <form action="">
+          
             <div className="auth-main">
-              <div className="first-last-wrapper">
+      
                 <div className="auth-firstname">
                   <label htmlFor="Firstname">Firstname</label>
                   <input
                     type="text"
                     placeholder="Firstname"
                     onChange={(e) => Setfirstname(e.target.value)}
-                    required
+                    
                     className="auth-input"
                   />
                 </div>
@@ -64,15 +64,15 @@ export function SignUp() {
                     type="text"
                     placeholder="Lastname"
                     onChange={(e) => Setlastname(e.target.value)}
-                    required
+                    
                     className="auth-input"
                   />
                 </div>
-              </div>
+              
               <div className="auth-email">
                 <label htmlFor="email">E-mail </label>
                 <input
-                  required
+                  
                   type="email"
                   placeholder="test@gmail.com"
                   className="auth-input"
@@ -85,28 +85,20 @@ export function SignUp() {
                   type="password"
                   placeholder="*******"
                   className="auth-input"
-                  required
+                  
                   onChange={(e) => setPassword(e.target.value)}
                 />
               </div>
               <div className="SighUp-primary-button">
-                <button className="SighUp-primary-button" onClick={() => {SignUp();
-                 toast.success("Logged In", {
-                position: "bottom-right",
-                autoClose: 5000,
-                hideProgressBar: false,
-                closeOnClick: true,
-                pauseOnHover: true,
-                draggable: true,
-                progress: undefined,
-                theme: "light",
-              });} }>Create New Account</button>
+                <button className="SighUp-primary-button" onClick={()=>SignUp()}>
+                  Create New Account
+                  </button>
               </div>
               <a href="/login">
                 <div>Already having an account</div>
               </a>
             </div>
-          </form>
+          
         </div>
       )}
     </div>

@@ -20,7 +20,7 @@ function ProductListing() {
     getData();
     //GetCartItems();
   }, []);
-  //console.log(PriceSort);
+  console.log(PriceSort);
   return (
     <div className="products-container">
       <div>
@@ -28,7 +28,6 @@ function ProductListing() {
       </div>
       <ul type="none" className="product">
         {PriceSort.map((item) => {
-          
           const IsWishListed = wishList.find(
             (wishListItem) => wishListItem._id === item._id
           );
@@ -48,17 +47,9 @@ function ProductListing() {
                   <div>
                     {IsWishListed ? (
                       <AiTwotoneHeart
-                        onClick={() => {AddToWishList(item, false);
-                          toast.warning("Item Removed from Wishlist", {
-                            position: "bottom-right",
-                            autoClose: 5000,
-                            hideProgressBar: false,
-                            closeOnClick: true,
-                            pauseOnHover: true,
-                            draggable: true,
-                            progress: undefined,
-                            theme: "light",
-                          });
+                        onClick={() => {
+                          AddToWishList(item, false);
+                          
                         }}
                         className=" product-liked-button"
                       />
@@ -70,16 +61,7 @@ function ProductListing() {
                             : navigate("/login", {
                                 state: { from: "/products" },
                               });
-                              toast.success("Item Added To Wishlist", {
-                                position: "bottom-right",
-                                autoClose: 5000,
-                                hideProgressBar: false,
-                                closeOnClick: true,
-                                pauseOnHover: true,
-                                draggable: true,
-                                progress: undefined,
-                                theme: "light",
-                              });
+                          
                         }}
                         className="product-like-button"
                       />
@@ -99,14 +81,11 @@ function ProductListing() {
                 <div className="product-price">
                   <p className="product-discount-price">
                     {" "}
-                    ₹{item.price - item.price * (item.discount / 100)}
+                    ₹{item.discount_price}
                   </p>
                   <p className="product-original-price"> ₹{item.price}</p>
-                  <p className="product-dis-percentage">{item.discount}%off</p>
+                  {/* <p className="product-dis-percentage">{item.discount}%off</p> */}
                 </div>
-                {/* <div>
-                  <p>{item.size}</p>
-                </div> */}
                 <div>
                   <span lassName="product-primary-button">
                     {IsCartItem ? (
@@ -125,17 +104,6 @@ function ProductListing() {
                             : navigate("/login", {
                                 state: { from: "/products" },
                               });
-                          GetCartItems();
-                          toast.success("Item Added To Cart", {
-                            position: "bottom-right",
-                            autoClose: 5000,
-                            hideProgressBar: false,
-                            closeOnClick: true,
-                            pauseOnHover: true,
-                            draggable: true,
-                            progress: undefined,
-                            theme: "light",
-                          });
                         }}
                       >
                         {" "}

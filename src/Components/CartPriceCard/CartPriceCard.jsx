@@ -1,16 +1,15 @@
-import React, { useContext, useState } from "react";
-import "./CartPriceDetails.css"
-import { getPriceDetails } from "../Utils/GetPricedetails";
-import { CartContext } from "../Contexts/CartContext";
+import React, { useContext} from "react";
+import "./CartPriceCard.css"
+import { getPriceDetails } from "../../Utils/GetPricedetails";
+import { CartContext } from "../../Contexts/CartContext";
 import { useNavigate } from "react-router";
-import { Cart } from "../Pages/Cart/Cart";
+import { Cart } from "../../Pages/Cart/Cart";
 import { toast } from "react-toastify";
-function CartPriceDetails() {
+function CartPriceCard() {
   const {
     price,
     discount,
     deliveryCharge,
-    CuponDiscount,
     TotalAmt,
   } = getPriceDetails();
   const { cartItem } = useContext(CartContext);
@@ -42,10 +41,6 @@ function CartPriceDetails() {
         </div>
 
         <br />
-        <div className="cart-coupon">
-          <p>Coupon Discount</p>
-          <p>{ coupon? 100:0}</p>
-        </div>
 
         <hr />
         <div className="cart-tot-amt">
@@ -55,7 +50,7 @@ function CartPriceDetails() {
 
         <hr />
         <p style={{ textAlign: "center" }}>
-          You will save {CuponDiscount + discount} on this order
+          You will save { discount} on this order
         </p>
 
         <br />
@@ -75,4 +70,4 @@ function CartPriceDetails() {
     </div>
   );
 }
-export { CartPriceDetails };
+export { CartPriceCard };

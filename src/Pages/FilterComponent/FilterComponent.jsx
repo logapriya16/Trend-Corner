@@ -1,7 +1,7 @@
-import React, { useContext } from "react";
+import React, { useContext, useState } from "react";
 import "./FilterComponent.css";
 import { FilterContext } from "../../Contexts/FiltersContext";
-
+import {AiOutlineDelete} from "react-icons/ai"
 export const FilterComponent = () => {
   const {
     HandleCategory,
@@ -12,13 +12,14 @@ export const FilterComponent = () => {
     HandleSort,
     HandleClear
   } = useContext(FilterContext);
+  const [delcolor,SetDelcolor]=useState(false)  
   return (
     <div className="filters">
       <div className="filter-head">
         <p>
           <b>Filters</b>
         </p>
-        <span onClick={()=>{HandleClear()} }>Clear</span>
+        <span onClick={()=>{HandleClear(); SetDelcolor(false)}  } ><AiOutlineDelete style={{ color:delcolor?"red":"black"}} className="product-filter-button"  /></span>
       </div>
 
       <div className="filter-price-range">
@@ -30,8 +31,8 @@ export const FilterComponent = () => {
           title="price"
           id="price-range"
           min={0}
-          max={1000}
-          step={100}
+          max={10000}
+          step={1000}
           onChange={(e) => HandleRange(e)}
         />
       </div>

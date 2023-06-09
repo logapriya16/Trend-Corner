@@ -4,8 +4,9 @@ export const FilterProvider = ({ children }) => {
   const [products, setProducts] = useState([]);
   const [filters, SetFilters] = useState({
     serachInput: "",
-    rangeInput: 100000,
+    rangeInput: 10000,
     categoryInput: [],
+    homecategory:"",
     ratingInput: "",
     occationInput: [],
     sizeInput: [],
@@ -40,6 +41,10 @@ export const FilterProvider = ({ children }) => {
         : [...filters.categoryInput, e],
     }));
   };
+  const HandleHomecategory=(e)=>{
+    SetFilters((filters)=>({
+      ...filters,homecategory:e}))
+  }
   const HandleRating = (e) => {
     SetFilters((filters) => ({ ...filters, ratingInput: e.target.value }));
   };
@@ -68,12 +73,14 @@ export const FilterProvider = ({ children }) => {
 
   const HandleClear=()=>{
     SetFilters((filters)=>({...filters,serachInput: "",
-    rangeInput: 0,
+    rangeInput: 10000,
     categoryInput: [],
     ratingInput: "",
     occationInput: [],
     sizeInput: [],
-    sortInput: ""}))
+    sortInput: "",
+    homecategory:""
+  }))
   }
   const SearchSort =
     filters.serachInput.length > 0
@@ -81,18 +88,22 @@ export const FilterProvider = ({ children }) => {
           item.name.toLowerCase().includes(filters.serachInput.toLowerCase())
         )
       : products;
-
+      const HomeCategorySort=filters.homecategory.length>0?SearchSort.filter((item)=>{
+        if(item.categoryName === filters.homecategory ){return true}
+      }):SearchSort
   const RangeSort =
     filters.rangeInput
-      ? SearchSort.filter((item) => {
-        if(item.price <= filters.rangeInput){
+      ? HomeCategorySort.filter((item) => {
+         if( item.price <= filters.rangeInput )
+         {
+          console.log("range input ",filters.rangeInput)
           console.log(item.price)
-          console.log(filters.rangeInput)
+          console.log(item.id, item.price <= filters.rangeInput)
           return true
         }
       })
-      : SearchSort;
-
+      : HomeCategorySort;
+    
   const CategorySort =
     filters.categoryInput.length > 0
       ? RangeSort.filter((item) => {
@@ -105,7 +116,8 @@ export const FilterProvider = ({ children }) => {
           if (
             item.categoryName === "t-shirts" &&
             filters.categoryInput.includes("t-shirts")
-          ) {
+          ) 
+          {
             return true;
           }
           
@@ -211,7 +223,8 @@ export const FilterProvider = ({ children }) => {
         HandleSize,
         HandleSort,
         PriceSort,
-        HandleClear
+        HandleClear,
+        HandleHomecategory        
       }}
     >
       {children}

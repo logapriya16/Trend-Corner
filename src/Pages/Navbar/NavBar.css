@@ -1,3 +1,4 @@
+@import url('https://fonts.googleapis.com/css2?family=Monoton&display=swap');
 .Navigation-Container{
     padding: 0.5rem;
     padding-bottom: 0rem;
@@ -13,9 +14,14 @@
   }
   .nav-brand{
     text-align: center;
-    font-size: xx-large;
+    padding-top: 0.9rem;
+    font-size: 30px;
     color: var(--primary-color);
     cursor: pointer;
+    font-weight: bolder;
+    word-spacing: 0.5rem;
+    letter-spacing: 0.1rem;
+    font-family: 'Monoton', cursive;  
   }
   .nav-search{
     width: 500px;

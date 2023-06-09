@@ -33,7 +33,18 @@ export function AuthProvider({children}){
            //console.log(location.state)
             console.log(response)
            navigate(location.state.from.pathname)
-           
+           if(response.status===404){
+            toast.warning("Server Error ", {
+                position: "bottom-right",
+                autoClose: 5000,
+                hideProgressBar: false,
+                closeOnClick: true,
+                pauseOnHover: true,
+                draggable: true,
+                progress: undefined,
+                theme: "light",
+              });
+           }
         }
         catch(error){
             console.error(error)
@@ -55,9 +66,21 @@ export function AuthProvider({children}){
             const {encodedToken} = await response.json();
             localStorage.setItem("encodedToken",encodedToken)
            console.log(encodedToken)
-                //console.log(response)
+                console.log(response)
                 SetIsLoggedIn(encodedToken)
-                
+                if(response.status===200){
+                    toast.success("Logged In ", {
+                        position: "bottom-right",
+                        autoClose: 5000,
+                        hideProgressBar: false,
+                        closeOnClick: true,
+                        pauseOnHover: true,
+                        draggable: true,
+                        progress: undefined,
+                        theme: "light",
+                      });
+                      if(response.status===500){}
+                }
            navigate(location.state.from.pathname)
            
         }
@@ -84,11 +107,21 @@ export function AuthProvider({children}){
             const {encodedToken}=await response.json();
             localStorage.setItem("encodedToken",encodedToken)
             SetIsLoggedIn(encodedToken)
-            navigate("/products")
-            //console.log(response)
-            //console.log(encodedToken)
-            //console.log(creds)
-            console.log(location)
+            console.log(response)
+            console.log(creds)            
+            if(response.status===201){
+                navigate("/products")
+                toast.success("Logged In", {
+                    position: "bottom-right",
+                    autoClose: 5000,
+                    hideProgressBar: false,
+                    closeOnClick: true,
+                    pauseOnHover: true,
+                    draggable: true,
+                    progress: undefined,
+                    theme: "light",
+                  });
+            }
         }
         catch(error){console.log("Error while SignUp",error)}
     }

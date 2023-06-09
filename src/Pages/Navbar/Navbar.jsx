@@ -1,8 +1,6 @@
 import React, { useContext } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import "./NavBar.css"
-import { CartContext } from "../../Contexts/CartContext";
-import { WishListContext } from "../../Contexts/WishListContext";
 import {BsCartFill} from "react-icons/bs"
 import {GiLargeDress} from "react-icons/gi"
 import {AiTwotoneHeart} from "react-icons/ai"
@@ -14,8 +12,6 @@ import { FilterContext } from "../../Contexts/FiltersContext";
 
 export function Navbar() {
   const navigate=useNavigate()
-  const {cartItem}=useContext(CartContext)
-  const {wishList}=useContext(WishListContext)
   const {HandleSearch}=useContext(FilterContext)
   return <nav className="Navigation-Container">
     <div className="nav-brand" onClick={()=>navigate("/")}>Trend Corner</div>

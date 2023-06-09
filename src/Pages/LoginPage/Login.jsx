@@ -66,16 +66,7 @@ const navigate=useNavigate()
               type="submit"
               className="primary-button"
               onClick={() => {getDefaultData();  
-                toast.success("Siggned Up ", {
-                  position: "bottom-right",
-                  autoClose: 5000,
-                  hideProgressBar: false,
-                  closeOnClick: true,
-                  pauseOnHover: true,
-                  draggable: true,
-                  progress: undefined,
-                  theme: "light",
-                });
+                
                 }}
             >
               Test User

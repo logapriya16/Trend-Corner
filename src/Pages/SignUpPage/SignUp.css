@@ -22,21 +22,16 @@
     flex-direction: column;
     justify-content: center;
     padding: 1rem;
-}
-.first-last-wrapper{
-    display: flex;
-    flex-direction:row;
-    gap: 3.5rem;
+   
 }
 .auth-firstname {
     display: flex;
     flex-direction: column;
     gap:0.5rem;
-    margin: 1rem;
+    
 }
 .auth-lastname{
     display: flex;
-    margin: 1rem;
     gap:0.5rem;
     flex-direction: column;
 }
@@ -44,7 +39,7 @@
     display: flex;
     flex-direction: column;
     gap:0.5rem;
-    padding-left: 0.5rem;
+
 }
 .auth-password{
     display: flex;

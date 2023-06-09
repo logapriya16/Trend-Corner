@@ -1,4 +1,4 @@
-import React, { useContext, useState } from "react";
+import React, { useContext } from "react";
 import "./NewAddress.css";
 import { useNavigate } from "react-router";
 import { MdOutlineArrowBack } from "react-icons/md";
@@ -8,7 +8,7 @@ export const NewAddress = () => {
   const {
     setCollectAddress,
     collectAddress,
-    userAddress,
+    
     setuserAddress,
   } = useContext(AddressContext);
 

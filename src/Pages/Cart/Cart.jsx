@@ -3,8 +3,10 @@ import { useContext, useEffect } from "react";
 import { CartContext } from "../../Contexts/CartContext";
 import "./Cart.css";
 import { WishListContext } from "../../Contexts/WishListContext";
-import { CartPriceDetails } from "../../Components/CartPriceDetails";
 import { toast } from "react-toastify";
+import { CartPriceCard } from "../../Components/CartPriceCard/CartPriceCard";
+
+
 export function Cart() {
   //const navigate = useNavigate()
   const {
@@ -49,7 +51,7 @@ export function Cart() {
                   <div className="cart-product-price">
                     <p className="cart-product-discount-price">
                       {" "}
-                      ₹{item.price - item.price * (item.discount / 100)}
+                      ₹{item.discount_price}
                     </p>
                     <p className="cart-product-original-price">
                       {" "}
@@ -163,18 +165,8 @@ export function Cart() {
         })}
       </ul>
       <div className="CheckOut-Container">
-        <div style={{ textAlign: "center", paddingBottom: "-1rem" }}>
-          <span>Have A Coupon?</span>
-          <button
-            className="cart-primary-button"
-            disabled={coupon}
-            onClick={() => UseCoupon(true)}
-          >
-            Apply
-          </button>
-        </div>
-
-        <CartPriceDetails />
+        
+        <CartPriceCard/>
       </div>
     </div>}
     </div>
