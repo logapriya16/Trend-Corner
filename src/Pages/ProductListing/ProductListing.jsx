@@ -1,6 +1,6 @@
 import React, { useContext, useEffect } from "react";
 import "./ProductListing.css";
-import { FilterComponent } from "../FilterComponent/FilterComponent";
+//import { FilterComponent } from "../FilterComponent/FilterComponent";
 import { useNavigate } from "react-router";
 import { CartContext } from "../../Contexts/CartContext";
 import { WishListContext } from "../../Contexts/WishListContext";
@@ -9,6 +9,7 @@ import { AiTwotoneHeart } from "react-icons/ai";
 import { BsCart3 } from "react-icons/bs";
 import { FilterContext } from "../../Contexts/FiltersContext";
 import { toast } from "react-toastify";
+import { FilterComponent } from "../../Components/FilterComponent/FilterComponent";
 function ProductListing() {
   const { AddToCart, getData, cartItem, GetCartItems } = useContext(
     CartContext
@@ -24,7 +25,7 @@ function ProductListing() {
   return (
     <div className="products-container">
       <div>
-        <FilterComponent />
+        <FilterComponent/>
       </div>
       <ul type="none" className="product">
         {PriceSort.map((item) => {
