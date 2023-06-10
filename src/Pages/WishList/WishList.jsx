@@ -53,9 +53,9 @@ function WishListFunction() {
                       {" "}
                       ₹{item.price}
                     </p>
-                    <p className="wishlist-product-dis-percentage">
+                    {/* <p className="wishlist-product-dis-percentage">
                       {item.discount}%off
-                    </p>
+                    </p> */}
                   </div>
                 </div>
               </li>
@@ -66,16 +66,16 @@ function WishListFunction() {
                     <button
                       className="wishlist-primary-button"
                       onClick={() => {ChangeQuantity(item._id, "increment");
-                      toast.success("Quanity Increased", {
-                        position: "bottom-right",
-                        autoClose: 5000,
-                        hideProgressBar: false,
-                        closeOnClick: true,
-                        pauseOnHover: true,
-                        draggable: true,
-                        progress: undefined,
-                        theme: "light",
-                      });
+                      // toast.success("Quanity Increased", {
+                      //   position: "bottom-right",
+                      //   autoClose: 5000,
+                      //   hideProgressBar: false,
+                      //   closeOnClick: true,
+                      //   pauseOnHover: true,
+                      //   draggable: true,
+                      //   progress: undefined,
+                      //   theme: "light",
+                      // });
                     }}
                     >
                       Increase Quantity
@@ -86,16 +86,16 @@ function WishListFunction() {
                       onClick={() => {
                         AddToCart(item);
                         GetCartItems();
-                        toast.success("Item Added To Cart", {
-                          position: "bottom-right",
-                          autoClose: 5000,
-                          hideProgressBar: false,
-                          closeOnClick: true,
-                          pauseOnHover: true,
-                          draggable: true,
-                          progress: undefined,
-                          theme: "light",
-                        });
+                        // toast.success("Item Added To Cart", {
+                        //   position: "bottom-right",
+                        //   autoClose: 5000,
+                        //   hideProgressBar: false,
+                        //   closeOnClick: true,
+                        //   pauseOnHover: true,
+                        //   draggable: true,
+                        //   progress: undefined,
+                        //   theme: "light",
+                        // });
                       }}
                     >
                       Add To Cart
@@ -106,16 +106,16 @@ function WishListFunction() {
                 <button
                   className="wishlist-primary-button"
                   onClick={() => {AddToWishList(item, false);
-                    toast.warning("Item Removed From WishList", {
-                      position: "bottom-right",
-                      autoClose: 5000,
-                      hideProgressBar: false,
-                      closeOnClick: true,
-                      pauseOnHover: true,
-                      draggable: true,
-                      progress: undefined,
-                      theme: "light",
-                    });
+                    // toast.warning("Item Removed From WishList", {
+                    //   position: "bottom-right",
+                    //   autoClose: 5000,
+                    //   hideProgressBar: false,
+                    //   closeOnClick: true,
+                    //   pauseOnHover: true,
+                    //   draggable: true,
+                    //   progress: undefined,
+                    //   theme: "light",
+                    // });
                   }}
                 >
                   Remove Form WishList
