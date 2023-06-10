@@ -21,17 +21,15 @@ export const OrderSummary = () => {
       <div className="ordered-items" >
         {cartItem.map((item) => (
           <div className="order-items">
-            
+            <div className="product-img"> <img className="product-img" src={item.image} alt="pro-img" /> </div>
               <div className="product-name">{item.name}</div>
-        
             <div className="product-occation">{item.occation}</div>
             <div className="product-price">
               <p className="product-discount-price">
                 {" "}
-                ₹{item.price - item.price * (item.discount / 100)}
+                ₹{(item.discount_price)}
               </p>
               <p className="product-original-price"> ₹{item.price}</p>
-              <p className="product-dis-percentage">{item.discount}%off</p>
             </div>
             <div>
               <p>Size : {item.size}</p>

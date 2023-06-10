@@ -63,7 +63,7 @@ export const WishlistProvider = ({ children }) => {
                 //console.log(response)
                 if (response.status === 201) {
                     getWishlist()
-                    toast.warning("Item Removed from Wishlist", {
+                    toast.success("Item Added to Wishlist", {
                         position: "bottom-right",
                         autoClose: 5000,
                         hideProgressBar: false,
@@ -104,6 +104,16 @@ export const WishlistProvider = ({ children }) => {
                 //console.log("delete block")
                 if (response.status === 200) {
                     getWishlist()
+                    toast.warning("Removed from wishlist", {
+                        position: "bottom-right",
+                        autoClose: 5000,
+                        hideProgressBar: false,
+                        closeOnClick: true,
+                        pauseOnHover: true,
+                        draggable: true,
+                        progress: undefined,
+                        theme: "light",
+                      });
                 }
             }
             catch (error) { console.log("error in deleting the item from wishlist", error) }

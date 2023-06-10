@@ -6,15 +6,19 @@
 }
 .ordered-items{
     display: flex;
-    flex-direction: column;
+    flex-direction: row;
     gap: 0.5rem;
     padding:0.5rem ;
+
 }
 .order-items{
     
-    
-    gap: 0.3rem;
+
     width: 300px;
-    margin-left: 30rem;
+    
     box-shadow: 0 5px 15px rgba(90, 90, 90, 0.35);
+}
+.product-img{
+    height: 200px;
+    width: 200px;
 }

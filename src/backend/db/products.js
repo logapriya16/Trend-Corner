@@ -62,7 +62,7 @@ export const products = [
     rating:"3.9",
     image:"https://img3.junaroad.com/uiproducts/18329317/zoom_0-1649771283.jpg",
     instock:"false",
-    occation:"casualy",
+    occation:"casual",
     size:"L",
     discount_price:"900"
   },
