@@ -6,7 +6,6 @@ export const CartProvider = ({ children }) => {
   const [cartItem, setCartItem] = useState([]);
   
   const [data, setData] = useState([]);
-  const [CartProducts, SetCartProducts] = useState([]);
   //api call to fetch data
   const getData = async () => {
     try {
@@ -29,7 +28,7 @@ export const CartProvider = ({ children }) => {
         },
         body: JSON.stringify({ product: item }),
       });
-      console.log(response)
+      //console.log(response)
       if(response.status===201){
         GetCartItems()
         toast.success("Item Added To Cart", {
@@ -70,8 +69,8 @@ export const CartProvider = ({ children }) => {
       });
       const item = await response.json();
       setCartItem(item.cart);
-      console.log(response);
-      SetCartProducts(item.cart.map((item) => item.name));
+      //console.log(response);
+      //SetCartProducts(item.cart.map((item) => item.name));
     }
      catch (error) {
       console.log("error in fetching cart items",error);
@@ -141,7 +140,7 @@ export const CartProvider = ({ children }) => {
         
         AddToCart,
         DeleteFromCart,
-        CartProducts,
+        
         getData,
         data,
         setData,

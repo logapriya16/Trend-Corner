@@ -96,9 +96,9 @@ export const FilterProvider = ({ children }) => {
       ? HomeCategorySort.filter((item) => {
          if( item.price <= filters.rangeInput )
          {
-          console.log("range input ",filters.rangeInput)
-          console.log(item.price)
-          console.log(item.id, item.price <= filters.rangeInput)
+          //console.log("range input ",filters.rangeInput)
+          //console.log(item.price)
+          //console.log(item.id, item.price <= filters.rangeInput)
           return true
         }
       })

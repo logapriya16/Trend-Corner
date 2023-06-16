@@ -19,7 +19,7 @@ export const WishlistProvider = ({ children }) => {
 
             const item = await response.json()
             SetwishList(item.wishlist)
-            if(response.status==201){
+            if(response.status===201){
                 toast.success("Item Added To Wishlist", {
                     position: "bottom-right",
                     autoClose: 5000,
