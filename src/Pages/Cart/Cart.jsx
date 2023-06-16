@@ -5,6 +5,7 @@ import "./Cart.css";
 import { WishListContext } from "../../Contexts/WishListContext";
 import { toast } from "react-toastify";
 import { useNavigate } from "react-router";
+import { CartPriceCard } from "../../Components/CartPriceCard/CartPriceCard";
 export function Cart() {
   
   const { GetCartItems, ChangeQuantity, cartItem, DeleteFromCart } = useContext(
@@ -24,8 +25,7 @@ export function Cart() {
       ) : (
         <div className="cart-page">
           <ul className="cart-container" type="none">
-          <button onClick={()=>{navigate('/address')}}>Go to address page</button>
-       
+ 
             {cartItem.map((item) => {
               const IsWishListed = wishList.find(
                 (wishListItem) => wishListItem._id === item._id
@@ -168,7 +168,7 @@ export function Cart() {
             })}
           </ul>
           <div className="CheckOut-Container">
-
+              <CartPriceCard/>
           </div>
         </div>
       )}
