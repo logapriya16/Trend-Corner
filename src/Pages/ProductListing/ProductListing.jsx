@@ -19,9 +19,8 @@ function ProductListing() {
   const navigate = useNavigate();
   useEffect(() => {
     getData();
-    //GetCartItems();
+  
   }, []);
-  console.log(PriceSort);
   return (
     <div className="products-container">
       <div>
@@ -88,7 +87,7 @@ function ProductListing() {
                   {/* <p className="product-dis-percentage">{item.discount}%off</p> */}
                 </div>
                 <div>
-                  <span lassName="product-primary-button">
+                  <span >
                     {IsCartItem ? (
                       <button
                         className="product-primary-button"

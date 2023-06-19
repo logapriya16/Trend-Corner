@@ -37,27 +37,21 @@
 }
 .product-details-name{
     padding: 0.3rem;
-    padding-right: 1rem;
+    /* padding-right: 1rem; */
     font-weight: bold;
 }
 .product-details-rating{
     background-color: #20aa20;
-    border-radius: 9px;
+    display: flex;
+    gap: 0.4rem;
+    font-size: large;
+    width: fit-content;
+    padding: 0.2rem;
+    border-radius: 10%;
     color: rgb(255, 255, 255);
-    font-style: normal;
-    font-weight: 600;
-    font-size: 16px;
-    line-height: 1px;
-    font-family: "Mier demi";
-    margin: 0px;
-    padding: 0px;
-    padding-left: 0.3rem;
-    padding-right: 0.3rem;
-    font-size: small;
 }
-.fa-heart::before{
-    content: "\f004";
-    
+.star-icon{
+ padding: 0.5rem;
 }
 .product-details-occation{
     color: #a2a2a2;
@@ -106,4 +100,7 @@
 .product-details-primary-button:hover{
     background-color: white;
     color: var(--primary-color);
+}
+.product-info{
+    padding: 0.7rem;
 }

@@ -4,8 +4,10 @@ import { toast } from "react-toastify";
 export const CartContext = createContext();
 export const CartProvider = ({ children }) => {
   const [cartItem, setCartItem] = useState([]);
-  
+
   const [data, setData] = useState([]);
+  const [deliveryCharge, SetdeliveryCharge] = useState(0);
+
   //api call to fetch data
   const getData = async () => {
     try {
@@ -28,9 +30,9 @@ export const CartProvider = ({ children }) => {
         },
         body: JSON.stringify({ product: item }),
       });
-      //console.log(response)
-      if(response.status===201){
-        GetCartItems()
+      console.log(response)
+      if (response.status === 201) {
+        //GetCartItems();
         toast.success("Item Added To Cart", {
           position: "bottom-right",
           autoClose: 5000,
@@ -42,7 +44,7 @@ export const CartProvider = ({ children }) => {
           theme: "light",
         });
       }
-      if(response.status===500){
+      if (response.status === 500) {
         toast.warning("Server Error", {
           position: "bottom-right",
           autoClose: 5000,
@@ -69,15 +71,14 @@ export const CartProvider = ({ children }) => {
       });
       const item = await response.json();
       setCartItem(item.cart);
-      //console.log(response);
+      console.log(response);
       //SetCartProducts(item.cart.map((item) => item.name));
-    }
-     catch (error) {
-      console.log("error in fetching cart items",error);
+    } catch (error) {
+      console.log("error in fetching cart items", error);
     }
   };
 
-  
+  console.log("cart items form context", cartItem);
   //api call to change the quantity of a product
   const ChangeQuantity = async (id, action_type) => {
     const Token = localStorage.getItem("encodedToken");
@@ -124,27 +125,36 @@ export const CartProvider = ({ children }) => {
       console.error(err);
     }
   };
+  const price = cartItem.reduce((acc, curr) => acc + curr.price * curr.qty, 0);
+  const discount = cartItem.reduce(
+    (acc, curr) => acc + (curr.price - curr.discount_price) * curr.qty,
+    0
+  );
+  if (price > 0) {
+    price > 3000 ? SetdeliveryCharge(0) : SetdeliveryCharge(100);
+  }
+  const TotalAmt = price - discount + deliveryCharge;
+  console.log(cartItem);
+  console.log("price details", price, discount, deliveryCharge, TotalAmt);
+
   useEffect(() => {
     getData();
-     }, []);
+    //GetCartItems();
+  }, []);
 
-     
-  
-//console.log(TotalPrice)
   return (
     <CartContext.Provider
       value={{
         GetCartItems,
         cartItem,
         ChangeQuantity,
-        
+
         AddToCart,
         DeleteFromCart,
-        
+
         getData,
         data,
         setData,
-        
       }}
     >
       {children}

@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import { useContext, useEffect } from "react";
 import { CartContext } from "../../Contexts/CartContext";
 import "./Cart.css";
@@ -7,25 +7,21 @@ import { toast } from "react-toastify";
 import { useNavigate } from "react-router";
 import { CartPriceCard } from "../../Components/CartPriceCard/CartPriceCard";
 export function Cart() {
-  
-  const { GetCartItems, ChangeQuantity, cartItem, DeleteFromCart } = useContext(
+  //console.log(cartItem.length);
+  const { AddToWishList, wishList } = useContext(WishListContext);
+  const { cartItem, ChangeQuantity, DeleteFromCart, GetCartItems } = useContext(
     CartContext
   );
-  const { AddToWishList, wishList } = useContext(WishListContext);
   const navigate = useNavigate();
   useEffect(() => {
     GetCartItems();
   }, []);
+  console.log(cartItem, "from cart page");
   return (
     <div>
-      {cartItem.length < 1 ? (
-        <h1 style={{ textAlign: "center", paddingTop: "7rem" }}>
-          Your Cart Is Empty
-        </h1>
-      ) : (
+      {cartItem.length > 0 ? (
         <div className="cart-page">
           <ul className="cart-container" type="none">
- 
             {cartItem.map((item) => {
               const IsWishListed = wishList.find(
                 (wishListItem) => wishListItem._id === item._id
@@ -109,16 +105,6 @@ export function Cart() {
                           className="cart-primary-button"
                           onClick={() => {
                             AddToWishList(item, false);
-                            toast.warning("Item Removed From WishList", {
-                              position: "bottom-right",
-                              autoClose: 5000,
-                              hideProgressBar: false,
-                              closeOnClick: true,
-                              pauseOnHover: true,
-                              draggable: true,
-                              progress: undefined,
-                              theme: "light",
-                            });
                           }}
                         >
                           Remove from Wishlist
@@ -128,16 +114,6 @@ export function Cart() {
                           className="cart-primary-button"
                           onClick={() => {
                             AddToWishList(item, true);
-                            toast.success("Item Added To WishList", {
-                              position: "bottom-right",
-                              autoClose: 5000,
-                              hideProgressBar: false,
-                              closeOnClick: true,
-                              pauseOnHover: true,
-                              draggable: true,
-                              progress: undefined,
-                              theme: "light",
-                            });
                           }}
                         >
                           Add To Wishlist
@@ -168,9 +144,23 @@ export function Cart() {
             })}
           </ul>
           <div className="CheckOut-Container">
-              <CartPriceCard/>
+            <div
+              style={{
+                padding: "2rem",
+                textAlign: "center",
+                paddingTop: "0rem",
+              }}
+            >
+              <hr />
+              <h3 style={{ textAlign: "center" }}>PRICE DETAILS</h3>
+              <hr />
+            </div>
           </div>
         </div>
+      ) : (
+        <h1 style={{ textAlign: "center", paddingTop: "7rem" }}>
+          Your Cart Is Empty
+        </h1>
       )}
     </div>
   );

@@ -5,7 +5,7 @@ import "./ProductsDetails.css";
 
 import { WishListContext } from "../../Contexts/WishListContext";
 import { BsCart3 } from "react-icons/bs";
-
+import {AiFillStar} from "react-icons/ai"
 export default function ProductsDetails() {
   const { getData, data, AddToCart, cartItem, GetCartItems } = useContext(
     CartContext
@@ -39,15 +39,17 @@ export default function ProductsDetails() {
                     alt="product-img"
                   />
                   <div className="product-details-info">
-                    <div className="product-details-name-rating">
-                      <div className="product-details-name">{item.name}</div>
+                   
+                    <div className="product-details-name"><h1> {item.pname}</h1></div>
                       <div className="product-details-rating">
                         <p>{item.rating}</p>
-                        <i className="product-details-star"></i>
+                        <AiFillStar className="star-icon"/>
                       </div>
-                    </div>
                     <div className="product-details-occation">
-                      {item.occation}
+                      Ideal for {item.occation}
+                    </div>
+                    <div>
+                      Size : {item.size}
                     </div>
                     <div className="product-price">
                       <p className="product-discount-price">
@@ -55,7 +57,21 @@ export default function ProductsDetails() {
                         ₹{item.discount_price}
                       </p>
                       <p className="product-original-price"> ₹{item.price}</p>
-                      {/* <p className="product-dis-percentage">{item.discount}%off</p> */}
+                      <p className="product-dis-percentage">{Math.floor(((item.price-item.discount_price)/item.price)*100)}%off</p>
+                    </div>
+                    <div className="product-info">
+                      <h3>Product Details</h3>
+                      <ul>
+                        <li>
+                          {item.details.a}
+                        </li>
+                        <li>
+{item.details.b}
+                        </li>
+                        <li>{item.details.c}</li>
+                        <li>{item.details.d}</li>
+                        
+                      </ul>
                     </div>
                     <div className="product-details-buttons">
                       <span>
