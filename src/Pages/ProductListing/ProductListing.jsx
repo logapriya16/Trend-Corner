@@ -18,7 +18,7 @@ function ProductListing() {
   const { AddToWishList, wishList } = useContext(WishListContext);
   const navigate = useNavigate();
   useEffect(() => {
-    getData();
+  getData();
   
   }, []);
   return (

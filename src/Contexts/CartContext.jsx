@@ -30,9 +30,11 @@ export const CartProvider = ({ children }) => {
         },
         body: JSON.stringify({ product: item }),
       });
-      console.log(response)
+      const data = await response.json();
+      //console.log(data);
       if (response.status === 201) {
         //GetCartItems();
+        setCartItem(data.cart);
         toast.success("Item Added To Cart", {
           position: "bottom-right",
           autoClose: 5000,
@@ -79,6 +81,7 @@ export const CartProvider = ({ children }) => {
   };
 
   console.log("cart items form context", cartItem);
+
   //api call to change the quantity of a product
   const ChangeQuantity = async (id, action_type) => {
     const Token = localStorage.getItem("encodedToken");
@@ -96,7 +99,7 @@ export const CartProvider = ({ children }) => {
 
       //setting the cart again if response is positive
       if (response.status === 200) {
-        GetCartItems();
+        //GetCartItems();
       }
       //console.log(response)
       //console.log(cartItem.map((item)=>item))
@@ -118,7 +121,7 @@ export const CartProvider = ({ children }) => {
       });
       //setting the cart again if response is positive
       if (response.status === 200) {
-        GetCartItems();
+        //GetCartItems();
       }
       //console.log(response)
     } catch (err) {
@@ -134,11 +137,11 @@ export const CartProvider = ({ children }) => {
     price > 3000 ? SetdeliveryCharge(0) : SetdeliveryCharge(100);
   }
   const TotalAmt = price - discount + deliveryCharge;
-  console.log(cartItem);
-  console.log("price details", price, discount, deliveryCharge, TotalAmt);
+  //console.log("price details", price, discount, deliveryCharge, TotalAmt);
 
   useEffect(() => {
-    getData();
+    console.log("useeffect", cartItem);
+    //getData();
     //GetCartItems();
   }, []);
 

@@ -17,7 +17,9 @@ function WishListFunction() {
   return (
     <div className="wishlist-container">
       <Navbar />
-      <h1 style={{textAlign:"center"}}>{wishList.length <1?"Your Wishlist is empty":"My wishlist"}</h1>
+      <h1 style={{ textAlign: "center" }}>
+        {wishList.length < 1 ? "Your Wishlist is empty" : "My wishlist"}
+      </h1>
       <ul>
         {wishList.map((item) => {
           const IsCartItem = cartItem.find(
@@ -65,18 +67,9 @@ function WishListFunction() {
                   {IsCartItem ? (
                     <button
                       className="wishlist-primary-button"
-                      onClick={() => {ChangeQuantity(item._id, "increment");
-                      // toast.success("Quanity Increased", {
-                      //   position: "bottom-right",
-                      //   autoClose: 5000,
-                      //   hideProgressBar: false,
-                      //   closeOnClick: true,
-                      //   pauseOnHover: true,
-                      //   draggable: true,
-                      //   progress: undefined,
-                      //   theme: "light",
-                      // });
-                    }}
+                      onClick={() => {
+                        ChangeQuantity(item._id, "increment");
+                      }}
                     >
                       Increase Quantity
                     </button>
@@ -85,17 +78,6 @@ function WishListFunction() {
                       className="wishlist-primary-button"
                       onClick={() => {
                         AddToCart(item);
-                        GetCartItems();
-                        // toast.success("Item Added To Cart", {
-                        //   position: "bottom-right",
-                        //   autoClose: 5000,
-                        //   hideProgressBar: false,
-                        //   closeOnClick: true,
-                        //   pauseOnHover: true,
-                        //   draggable: true,
-                        //   progress: undefined,
-                        //   theme: "light",
-                        // });
                       }}
                     >
                       Add To Cart
@@ -105,17 +87,8 @@ function WishListFunction() {
 
                 <button
                   className="wishlist-primary-button"
-                  onClick={() => {AddToWishList(item, false);
-                    // toast.warning("Item Removed From WishList", {
-                    //   position: "bottom-right",
-                    //   autoClose: 5000,
-                    //   hideProgressBar: false,
-                    //   closeOnClick: true,
-                    //   pauseOnHover: true,
-                    //   draggable: true,
-                    //   progress: undefined,
-                    //   theme: "light",
-                    // });
+                  onClick={() => {
+                    AddToWishList(item, false);
                   }}
                 >
                   Remove Form WishList

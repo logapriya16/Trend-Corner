@@ -1,25 +1,17 @@
-import React, { useContext} from "react";
-import "./CartPriceCard.css"
+import React, { useContext } from "react";
+import "./CartPriceCard.css";
 import { getPriceDetails } from "../../Utils/GetPricedetails";
 import { CartContext } from "../../Contexts/CartContext";
 import { useNavigate } from "react-router";
-import { Cart } from "../../Pages/Cart/Cart";
 import { toast } from "react-toastify";
 function CartPriceCard() {
-  const {
-    price,
-    discount,
-    deliveryCharge,
-    TotalAmt,
-  } = getPriceDetails();
+  const { price, discount, deliveryCharge, TotalAmt } = getPriceDetails();
   const { cartItem } = useContext(CartContext);
-  const {coupon}=Cart()
-  const navigate = useNavigate()
+  const navigate = useNavigate();
   return (
-    <div style={{padding:"2rem" , textAlign:"center",paddingTop:"0rem"}}>
-          
+    <div style={{ padding: "2rem", textAlign: "center", paddingTop: "0rem" }}>
       <hr />
-      <h3 style={{textAlign:"center"}}>PRICE DETAILS</h3>
+      <h3 style={{ textAlign: "center" }}>PRICE DETAILS</h3>
       <hr />
       <div className="cart-price-details">
         <div className="cart-price">
@@ -50,22 +42,29 @@ function CartPriceCard() {
 
         <hr />
         <p style={{ textAlign: "center" }}>
-          You will save { discount} on this order
+          You will save {discount} on this order
         </p>
 
         <br />
-        <button className="primary-button" onClick={()=>{ price>0?navigate("/address")  
-      :toast.warning(" Add items to the cart ", {
-        position: "bottom-right",
-        autoClose: 5000,
-        hideProgressBar: false,
-        closeOnClick: true,
-        pauseOnHover: true,
-        draggable: true,
-        progress: undefined,
-        theme: "light",
-      });
-  }} > Checkout</button>
+        <button
+          className="primary-button"
+          onClick={() => {
+            price > 0
+              ? navigate("/address")
+              : toast.warning(" Add items to the cart ", {
+                  position: "bottom-right",
+                  autoClose: 5000,
+                  hideProgressBar: false,
+                  closeOnClick: true,
+                  pauseOnHover: true,
+                  draggable: true,
+                  progress: undefined,
+                  theme: "light",
+                });
+          }}
+        >
+          Checkout
+        </button>
       </div>
     </div>
   );
